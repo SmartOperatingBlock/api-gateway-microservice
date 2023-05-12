@@ -1,0 +1,6 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:////PointingToDeclaration/api-gateway-microservice/[root]/index.html
+$dokka.location://main/#/PointingToDeclaration/api-gateway-microservice/[root]/main.html
+
+
