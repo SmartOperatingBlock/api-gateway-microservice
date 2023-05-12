@@ -1,3 +1,22 @@
+## 1.0.0 (2023-05-12)
+
+
+### General maintenance
+
+* add dockerfile ([d1bee3b](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/d1bee3b6770f231df500b8b6200017b4bb6145b4))
+* add readme ([e2424fe](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/e2424fe502bedc4aadd20c5dbc123674dd798584))
+* initialize project ([e704394](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/e7043942bc93944a07fd2557a5cec3dac6e19d7f))
+
+
+### Dependency updates
+
+* **core-deps:** update dependency org.jetbrains.kotlinx:kotlinx-serialization-json to v1.5.1 ([dbaee53](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/dbaee5372e85d2ec4aea149d15191c8beba7487b))
+* **deps:** add ktor and kafka deps to gradle build file ([f398ff6](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/f398ff6605e065a9a2e579e197ce3f5b110a8064))
+* **deps:** add ktor and kafka deps to gradle catalog ([ebbf587](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/ebbf5874104167dbc2618c7baba30abe8b782bac))
+* **deps:** add vertx dependencies ([2f7af5c](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/2f7af5c097c39e60a0d628a86e5536007db7b166))
+* **deps:** update dependency io.kotest:kotest-assertions-core to v5.6.2 ([896cc86](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/896cc868e167bcbff82c355cefaa2febe3f9ba74))
+* **deps:** update plugin com.gradle.enterprise to v3.13.2 ([1a9f322](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/1a9f322ad7166c80c35b5930d6834f7cb85ce664))
+
 ## [0.1.4](https://github.com/SmartOperatingBlock/kotlin-template-project/compare/0.1.3...0.1.4) (2023-04-26)
 
 
