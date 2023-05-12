@@ -26,15 +26,12 @@ repositories {
 dependencies {
     implementation(libs.kotlin.stdlib)
     implementation(libs.jackson.module.kotlin)
-    implementation(libs.kafka.clients)
-    implementation(libs.kafka.json)
     implementation(libs.kotlin.serialization.json)
-    implementation(libs.ktor.server.core)
-    implementation(libs.ktor.server.content.negotiation)
-    implementation(libs.ktor.server.content.negotiation.json)
-    implementation(libs.ktor.server.engine.netty)
-    implementation(libs.ktor.server.status.pages)
     implementation(libs.logback)
+    implementation(libs.vertx.core)
+    implementation(libs.vertx.kafka)
+    implementation(libs.vertx.kotlin)
+    implementation(libs.vertx.web)
     testImplementation(libs.bundles.kotlin.testing)
 }
 
