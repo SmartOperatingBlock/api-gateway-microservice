@@ -10,11 +10,13 @@ package application.presenter.api
 
 import entity.room.Room
 import entity.room.RoomData
+import kotlinx.serialization.Serializable
 
 /**
  * The model of the Room DTO composed by [id], [name],
  * [zoneId] and the [type].
  */
+@Serializable
 data class RoomDto(
     val id: String,
     val name: String,
@@ -25,6 +27,7 @@ data class RoomDto(
 /**
  * The Dto for the [numberOfZones] inside the Operating block.
  */
+@Serializable
 data class NumberOfZonesDto(val numberOfZones: Int)
 
 /** Extension function to convert a [Room] to its [RoomDto]. */
@@ -41,6 +44,6 @@ fun RoomDto.toRoom() =
     Room(
         RoomData.RoomId(this.id),
         this.name,
-        RoomData.ZoneId(this.id),
+        RoomData.ZoneId(this.zoneId),
         RoomData.RoomType.valueOf(this.type),
     )
