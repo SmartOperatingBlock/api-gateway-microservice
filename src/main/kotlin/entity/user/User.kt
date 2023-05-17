@@ -6,14 +6,11 @@
  * https://opensource.org/licenses/MIT.
  */
 
-package entity
-
-import kotlinx.serialization.Serializable
+package entity.user
 
 /**
  * The user for the auth api composed by the [userId] and [password].
  */
-@Serializable
 data class User(
     val userId: String,
     val password: String,
