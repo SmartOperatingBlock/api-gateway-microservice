@@ -1,3 +1,9 @@
+import infrastructure.api.ObdApiGatewayVerticle
+import infrastructure.api.OrdApiGatewayVerticle
+import infrastructure.provider.Provider
+import infrastructure.provider.ProviderImpl
+import io.vertx.core.Vertx
+
 /*
  * Copyright (c) 2023. Smart Operating Block
  *
@@ -7,8 +13,11 @@
  */
 
 /**
- * Template for kotlin projects.
+ * The launcher of the API Gateway.
  */
 fun main() {
-    println("Hello World from Kotlin Template")
+    val vertx = Vertx.vertx()
+    val provider: Provider = ProviderImpl(vertx)
+    vertx.deployVerticle(ObdApiGatewayVerticle(provider))
+    vertx.deployVerticle(OrdApiGatewayVerticle(provider))
 }
