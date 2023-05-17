@@ -8,12 +8,14 @@
 
 package infrastructure.api.handlers
 
-import application.presenter.api.Login
+import application.presenter.api.UserDto
+import application.presenter.api.toUser
 import infrastructure.provider.Provider
 import io.netty.handler.codec.http.HttpResponseStatus
 import io.vertx.core.Handler
 import io.vertx.ext.web.RoutingContext
 import kotlinx.serialization.json.Json
+import usecase.AuthenticationUseCase
 
 /**
  * The handler for the authentication API.
@@ -24,9 +26,13 @@ class AuthenticationHandler(
 
     override fun handle(routingContext: RoutingContext) {
         routingContext.request().body().onComplete {
-            val login = Json.decodeFromString<Login>(it.result().toString())
-            provider.webClient.authenticationRequest(login).onComplete {
-                routingContext.response().setStatusCode(HttpResponseStatus.OK.code()).end()
+            val user = Json.decodeFromString<UserDto>(it.result().toString()).toUser()
+            AuthenticationUseCase(user, provider.webClient).execute().onComplete { ar ->
+                routingContext
+                    .response()
+                    .setStatusCode(
+                        if (ar.result()) HttpResponseStatus.OK.code() else HttpResponseStatus.UNAUTHORIZED.code(),
+                    ).end()
             }
         }
     }
