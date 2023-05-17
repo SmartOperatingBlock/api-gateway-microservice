@@ -25,8 +25,8 @@ class ZonesHandler(
 ) : Handler<RoutingContext> {
 
     override fun handle(routingContext: RoutingContext) {
-        RoomService.GetRooms(provider.webClient).execute().onComplete {
-            it.result().map { room ->
+        RoomService.GetRooms(provider.webClient).execute().onSuccess {
+            it.map { room ->
                 room.zoneId.id
             }.distinct().count().run {
                 routingContext.response().setStatusCode(HttpResponseStatus.OK.code()).end(
