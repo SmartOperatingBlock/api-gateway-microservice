@@ -9,6 +9,7 @@
 package infrastructure.api
 
 import infrastructure.api.handlers.AuthenticationHandler
+import infrastructure.api.handlers.ZonesHandler
 import infrastructure.provider.Provider
 import io.vertx.core.AbstractVerticle
 import io.vertx.ext.web.Router
@@ -24,6 +25,7 @@ class ObdApiGatewayVerticle(
 
     override fun start() {
         router.post("$endpoint/auth").handler(AuthenticationHandler(provider))
+        router.get("$endpoint/zones").handler(ZonesHandler(provider))
 
         vertx.createHttpServer()
             .requestHandler(router)
