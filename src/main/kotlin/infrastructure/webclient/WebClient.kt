@@ -7,16 +7,17 @@
  */
 
 package infrastructure.webclient
-import application.presenter.api.Login
+import application.presenter.api.toUserDto
+import entity.User
+import io.netty.handler.codec.http.HttpResponseStatus
 import io.vertx.core.Future
 import io.vertx.core.Vertx
-import io.vertx.core.buffer.Buffer
 import io.vertx.core.json.Json
-import io.vertx.ext.web.client.HttpResponse
 import io.vertx.ext.web.client.WebClient
+import usecase.repository.AuthenticationRepository
 
 /** The Web Client responsible to make HTTP request to other microservices. */
-class WebClient(vertx: Vertx) {
+class WebClient(vertx: Vertx) : AuthenticationRepository {
 
     init {
         MICROSERVICES_URL.forEach {
@@ -28,9 +29,10 @@ class WebClient(vertx: Vertx) {
 
     private val client: WebClient = WebClient.create(vertx)
 
-    /** The authentication request. */
-    fun authenticationRequest(login: Login): Future<HttpResponse<Buffer>> =
-        client.postAbs(UMI_URI).sendJson(Json.encode(login))
+    override fun getUserAuthentication(user: User): Future<Boolean> =
+        client.postAbs("$UMI_URI/auth").sendJson(Json.encode(user.toUserDto())).map {
+            it.statusCode() == HttpResponseStatus.OK.code()
+        }
 
     companion object {
         private val MICROSERVICES_URL = listOf<String?>(
