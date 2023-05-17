@@ -8,7 +8,7 @@
 
 package usecase.repository
 
-import entity.User
+import entity.user.User
 import io.vertx.core.Future
 
 /**

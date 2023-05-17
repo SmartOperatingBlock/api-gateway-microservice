@@ -8,7 +8,7 @@
 
 package application.presenter.api
 
-import entity.User
+import entity.user.User
 import kotlinx.serialization.Serializable
 
 /**
