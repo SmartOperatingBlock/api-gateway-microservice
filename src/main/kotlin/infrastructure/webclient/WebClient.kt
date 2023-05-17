@@ -21,6 +21,7 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import usecase.repository.AuthenticationRepository
 import usecase.repository.RoomRepository
+
 /** The Web Client responsible to make HTTP request to other microservices. */
 class WebClient(vertx: Vertx) : AuthenticationRepository, RoomRepository {
 
