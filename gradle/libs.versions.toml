@@ -14,8 +14,9 @@ kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "
 logback = { module = "ch.qos.logback:logback-classic", version = "1.4.7" }
 vertx-core = { module = "io.vertx:vertx-core", version.ref = "vertx" }
 vertx-kafka = { module = "io.vertx:vertx-kafka-client", version.ref = "vertx" }
-vertx-kotlin = { module = "io.vertx:vertx-lang-kotlin", version.ref ="vertx" }
-vertx-web = { module = "io.vertx:vertx-web", version.ref ="vertx" }
+vertx-kotlin = { module = "io.vertx:vertx-lang-kotlin", version.ref = "vertx" }
+vertx-web = { module = "io.vertx:vertx-web", version.ref = "vertx" }
+vertx-web-client  = { module = "io.vertx:vertx-web-client", version.ref= "vertx" }
 
 [bundles]
 kotlin-testing = [

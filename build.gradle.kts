@@ -32,6 +32,7 @@ dependencies {
     implementation(libs.vertx.kafka)
     implementation(libs.vertx.kotlin)
     implementation(libs.vertx.web)
+    implementation(libs.vertx.web.client)
     testImplementation(libs.bundles.kotlin.testing)
 }
 
