@@ -9,7 +9,12 @@
 package infrastructure.api
 
 import infrastructure.api.handlers.AuthenticationHandler
+<<<<<<< HEAD
 import infrastructure.api.handlers.ZonesHandler
+=======
+import infrastructure.api.handlers.SurgeryReportIntegrationHandler
+import infrastructure.api.handlers.SurgeryReportsArchiveHandler
+>>>>>>> 3cc86c6 (chore: add endpoints for surgery report requests)
 import infrastructure.provider.Provider
 import io.vertx.core.AbstractVerticle
 import io.vertx.ext.web.Router
@@ -26,6 +31,9 @@ class ObdApiGatewayVerticle(
     override fun start() {
         router.post("$endpoint/auth").handler(AuthenticationHandler(provider))
         router.get("$endpoint/zones").handler(ZonesHandler(provider))
+        router.get("$endpoint/surgery-reports").handler(SurgeryReportsArchiveHandler(provider))
+        router.get("$endpoint/surgery-reports/:processId").handler(SurgeryReportsArchiveHandler(provider))
+        router.patch("$endpoint/surgery-report-integration").handler(SurgeryReportIntegrationHandler(provider))
 
         vertx.createHttpServer()
             .requestHandler(router)
