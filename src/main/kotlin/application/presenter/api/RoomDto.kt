@@ -24,12 +24,6 @@ data class RoomDto(
     val type: String,
 )
 
-/**
- * The Dto for the [numberOfZones] inside the Operating block.
- */
-@Serializable
-data class NumberOfZonesDto(val numberOfZones: Int)
-
 /** Extension function to convert a [Room] to its [RoomDto]. */
 fun Room.toRoomDto() =
     RoomDto(
