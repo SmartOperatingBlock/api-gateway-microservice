@@ -9,10 +9,10 @@
 package infrastructure.api
 
 import infrastructure.api.handlers.AuthenticationHandler
-import infrastructure.api.handlers.ZonesHandler
 import infrastructure.api.handlers.SurgeryReportInfoHandler
 import infrastructure.api.handlers.SurgeryReportIntegrationHandler
 import infrastructure.api.handlers.SurgeryReportsArchiveHandler
+import infrastructure.api.handlers.ZonesHandler
 import infrastructure.provider.Provider
 import io.vertx.core.AbstractVerticle
 import io.vertx.ext.web.Router
