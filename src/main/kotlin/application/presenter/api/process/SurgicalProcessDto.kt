@@ -15,7 +15,7 @@ import java.time.Instant
 
 /**
  * The model of a Surgical Process Dto composed by:
- * - the [id]
+ * - the [processId]
  * - the [dateTime]
  * - the [type]
  * - the [patientId]
@@ -27,7 +27,7 @@ import java.time.Instant
  */
 @Serializable
 data class SurgicalProcessDto(
-    val id: String,
+    val processId: String,
     val dateTime: String,
     val type: String,
     val patientId: String,
