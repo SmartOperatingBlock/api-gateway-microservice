@@ -8,7 +8,9 @@
 
 package application.presenter.api
 
+import entity.user.Password
 import entity.user.User
+import entity.user.UserId
 import kotlinx.serialization.Serializable
 
 /**
@@ -25,8 +27,8 @@ data class UserDto(
  */
 fun UserDto.toUser(): User =
     User(
-        this.userId,
-        this.password,
+        UserId(this.userId),
+        Password(this.password),
     )
 
 /**
@@ -34,6 +36,6 @@ fun UserDto.toUser(): User =
  */
 fun User.toUserDto(): UserDto =
     UserDto(
-        this.userId,
-        this.password,
+        this.userId.id,
+        this.password.password,
     )
