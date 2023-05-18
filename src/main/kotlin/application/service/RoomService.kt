@@ -9,6 +9,7 @@
 package application.service
 
 import entity.room.Room
+import entity.room.RoomData
 import io.vertx.core.Future
 import usecase.repository.RoomRepository
 
@@ -25,5 +26,16 @@ object RoomService {
     ) : ApplicationService<Future<List<Room>>> {
 
         override fun execute(): Future<List<Room>> = roomRepository.getRooms()
+    }
+
+    /**
+     * The [ApplicationService] to get room environmental information.
+     */
+    class GetRoomEnvironmentalInfo(
+        private val roomId: RoomData.RoomId,
+        private val roomRepository: RoomRepository,
+    ) : ApplicationService<Future<Room>> {
+
+        override fun execute(): Future<Room> = roomRepository.getRoomEnvironmentalInfo(roomId)
     }
 }
