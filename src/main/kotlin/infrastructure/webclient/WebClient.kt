@@ -104,7 +104,8 @@ class WebClient(vertx: Vertx) :
             ).entries.map { processDto ->
                 processDto.toSurgicalProcess()
             }.firstOrNull { process ->
-                process.preOperatingRoom.id == preOperatingRoomId.id || process.operatingRoom.id == operatingRoomId.id
+                process.preOperatingRoom.id.id == preOperatingRoomId.id ||
+                    process.operatingRoom.id.id == operatingRoomId.id
             }
         }
 

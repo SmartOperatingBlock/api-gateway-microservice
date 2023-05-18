@@ -54,8 +54,8 @@ object ProcessData {
      */
     @Serializable
     data class RoomWithType(
-        val id: String,
-        val type: RoomData.RoomType,
+        val id: RoomData.RoomId,
+        val type: String,
     )
 
     /** The different states of a [SurgicalProcess]. */

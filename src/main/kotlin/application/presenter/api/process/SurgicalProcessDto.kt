@@ -57,7 +57,7 @@ fun SurgicalProcess.toSurgicalProcessDto() = SurgicalProcessDto(
  * Extension method to convert a [SurgicalProcessDto] to its [SurgicalProcess].
  */
 fun SurgicalProcessDto.toSurgicalProcess() = SurgicalProcess(
-    ProcessData.ProcessId(this.id),
+    ProcessData.ProcessId(this.processId),
     Instant.parse(this.dateTime),
     this.type,
     ProcessData.PatientId(this.patientId),
