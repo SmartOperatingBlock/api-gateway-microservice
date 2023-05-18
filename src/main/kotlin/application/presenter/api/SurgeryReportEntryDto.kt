@@ -8,11 +8,11 @@
 
 package application.presenter.api
 
-import entity.PatientInfo
-import entity.ProcessDate
-import entity.ProcessId
-import entity.ProcessType
-import entity.SurgeryReportEntry
+import entity.report.PatientInfo
+import entity.report.ProcessDate
+import entity.report.ProcessId
+import entity.report.ProcessType
+import entity.report.SurgeryReportEntry
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import java.time.Instant

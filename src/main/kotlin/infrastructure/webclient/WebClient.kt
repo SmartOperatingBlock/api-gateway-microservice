@@ -18,9 +18,9 @@ import application.presenter.api.toSurgeryReportIngrationDto
 import application.presenter.api.toUserDto
 import application.presenter.api.util.ApiResponses
 import application.presenter.api.util.ApiResponses.ResponseEntryList
-import entity.SurgeryReportEntry
-import entity.SurgeryReportInfo
-import entity.SurgeryReportIntegration
+import entity.report.SurgeryReportEntry
+import entity.report.SurgeryReportInfo
+import entity.report.SurgeryReportIntegration
 import entity.room.Room
 import entity.room.RoomData
 import entity.user.User
