@@ -8,6 +8,8 @@
 
 package infrastructure.webclient
 
+import application.presenter.api.process.SurgicalProcessDto
+import application.presenter.api.process.toSurgicalProcess
 import application.presenter.api.report.SurgeryReportEntryDto
 import application.presenter.api.report.SurgeryReportInfoDto
 import application.presenter.api.report.toSurgeryNameInfo
@@ -18,6 +20,7 @@ import application.presenter.api.room.RoomSerialization.toRoom
 import application.presenter.api.user.toUserDto
 import application.presenter.api.util.ApiResponses
 import application.presenter.api.util.ApiResponses.ResponseEntryList
+import entity.process.SurgicalProcess
 import entity.report.SurgeryReportEntry
 import entity.report.SurgeryReportInfo
 import entity.report.SurgeryReportIntegration
@@ -33,12 +36,15 @@ import kotlinx.serialization.json.Json
 import usecase.repository.AuthenticationRepository
 import usecase.repository.RoomRepository
 import usecase.repository.SurgeryReportRepository
+import usecase.repository.SurgicalProcessRepository
 
 /** The Web Client responsible to make HTTP request to other microservices. */
 class WebClient(vertx: Vertx) :
     AuthenticationRepository,
     SurgeryReportRepository,
-    RoomRepository {
+    RoomRepository,
+    SurgicalProcessRepository {
+
     init {
         MICROSERVICES_URL.forEach {
             checkNotNull(it) {
@@ -88,14 +94,31 @@ class WebClient(vertx: Vertx) :
             ).toRoom()
         }
 
+    override fun getSurgicalProcessInfoByRoomId(
+        preOperatingRoomId: RoomData.RoomId,
+        operatingRoomId: RoomData.RoomId,
+    ): Future<SurgicalProcess?> =
+        client.getAbs("$SPMS_URI/processes").send().map {
+            Json.decodeFromString<ResponseEntryList<SurgicalProcessDto>>(
+                it.bodyAsString(),
+            ).entries.map { processDto ->
+                processDto.toSurgicalProcess()
+            }.firstOrNull { process ->
+                process.preOperatingRoom.id == preOperatingRoomId.id || process.operatingRoom.id == operatingRoomId.id
+            }
+        }
+
     companion object {
         private val UMI_URI = System.getenv("USER_MANAGEMENT_MICROSERVICE_URL")
         private val BM_URI = System.getenv("BUILDING_MANAGEMENT_MICROSERVICE_URL")
         private val SR_URI = System.getenv("SURGERY_REPORT_MICROSERVICE_URL")
+        private val SPMS_URI = System.getenv("SURGICAL_PROCESS_MONITORING_MICROSERVICE_URL")
+
         private val MICROSERVICES_URL = listOf<String?>(
             UMI_URI,
             BM_URI,
             SR_URI,
+            SPMS_URI,
         )
     }
 }
