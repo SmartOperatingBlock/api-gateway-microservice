@@ -8,7 +8,7 @@
 
 package infrastructure.api.handlers
 
-import application.presenter.api.toSurgeryReportInfoDto
+import application.presenter.api.report.toSurgeryReportInfoDto
 import application.service.SurgeryReportInfoService
 import infrastructure.provider.Provider
 import io.netty.handler.codec.http.HttpResponseStatus

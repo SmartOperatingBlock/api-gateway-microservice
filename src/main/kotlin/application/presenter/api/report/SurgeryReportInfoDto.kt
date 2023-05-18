@@ -6,7 +6,7 @@
  * https://opensource.org/licenses/MIT.
  */
 
-package application.presenter.api
+package application.presenter.api.report
 
 import entity.report.PatientName
 import entity.report.SurgeryId

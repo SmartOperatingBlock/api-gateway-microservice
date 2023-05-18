@@ -8,13 +8,13 @@
 
 package infrastructure.webclient
 
-import application.presenter.api.SurgeryReportEntryDto
-import application.presenter.api.SurgeryReportInfoDto
+import application.presenter.api.report.SurgeryReportEntryDto
+import application.presenter.api.report.SurgeryReportInfoDto
+import application.presenter.api.report.toSurgeryNameInfo
+import application.presenter.api.report.toSurgeryReportEntry
+import application.presenter.api.report.toSurgeryReportIngrationDto
 import application.presenter.api.room.RoomPresentation
 import application.presenter.api.room.RoomSerialization.toRoom
-import application.presenter.api.toSurgeryNameInfo
-import application.presenter.api.toSurgeryReportEntry
-import application.presenter.api.toSurgeryReportIngrationDto
 import application.presenter.api.toUserDto
 import application.presenter.api.util.ApiResponses
 import application.presenter.api.util.ApiResponses.ResponseEntryList
