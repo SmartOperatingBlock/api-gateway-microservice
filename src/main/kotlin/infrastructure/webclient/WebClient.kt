@@ -32,16 +32,12 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import usecase.repository.AuthenticationRepository
 import usecase.repository.RoomRepository
-import usecase.repository.SurgeryReportArchiveRepository
-import usecase.repository.SurgeryReportInfoRepository
-import usecase.repository.SurgeryReportIntegrationRepository
+import usecase.repository.SurgeryReportRepository
 
 /** The Web Client responsible to make HTTP request to other microservices. */
 class WebClient(vertx: Vertx) :
     AuthenticationRepository,
-    SurgeryReportArchiveRepository,
-    SurgeryReportInfoRepository,
-    SurgeryReportIntegrationRepository,
+    SurgeryReportRepository,
     RoomRepository {
     init {
         MICROSERVICES_URL.forEach {

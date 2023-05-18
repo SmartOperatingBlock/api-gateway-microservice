@@ -10,14 +10,14 @@ package usecase
 
 import entity.report.SurgeryReportIntegration
 import io.vertx.core.Future
-import usecase.repository.SurgeryReportIntegrationRepository
+import usecase.repository.SurgeryReportRepository
 
 /**
  * Class that models surgery report integration use case.
  */
 class SurgeryReportIntegrationUseCase(
     private val integration: SurgeryReportIntegration,
-    private val repository: SurgeryReportIntegrationRepository,
+    private val repository: SurgeryReportRepository,
 ) : UseCase<Future<Boolean>> {
 
     override fun execute(): Future<Boolean> = repository.integrateReport(integration)

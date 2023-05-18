@@ -8,13 +8,25 @@
 
 package usecase.repository
 
+import entity.report.SurgeryReportEntry
+import entity.report.SurgeryReportInfo
 import entity.report.SurgeryReportIntegration
 import io.vertx.core.Future
 
 /**
- * Repository for the surgery report integration.
+ * Repository to manage data about Surgery Reports.
  */
-interface SurgeryReportIntegrationRepository {
+interface SurgeryReportRepository {
+
+    /**
+     * Get the surgery report archive.
+     */
+    fun getSurgeryReportArchive(): Future<List<SurgeryReportEntry>>
+
+    /**
+     * get the surgery report info given the [processId].
+     */
+    fun getSurgeryReportInfo(processId: String): Future<SurgeryReportInfo>
 
     /**
      * Integrate the surgery report.
