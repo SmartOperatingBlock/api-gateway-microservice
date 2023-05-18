@@ -7,19 +7,22 @@
  */
 
 package infrastructure.webclient
-import application.presenter.api.RoomDto
+
+import application.presenter.api.RoomPresentation
+import application.presenter.api.RoomSerialization.toRoom
 import application.presenter.api.SurgeryReportEntryDto
 import application.presenter.api.SurgeryReportInfoDto
-import application.presenter.api.toRoom
 import application.presenter.api.toSurgeryNameInfo
 import application.presenter.api.toSurgeryReportEntry
 import application.presenter.api.toSurgeryReportIngrationDto
 import application.presenter.api.toUserDto
 import application.presenter.api.util.ApiResponses
+import application.presenter.api.util.ApiResponses.ResponseEntryList
 import entity.SurgeryReportEntry
 import entity.SurgeryReportInfo
 import entity.SurgeryReportIntegration
 import entity.room.Room
+import entity.room.RoomData
 import entity.user.User
 import io.netty.handler.codec.http.HttpResponseStatus
 import io.vertx.core.Future
@@ -57,7 +60,7 @@ class WebClient(vertx: Vertx) :
 
     override fun getRooms(): Future<List<Room>> =
         client.getAbs("$BM_URI/rooms").send().map {
-            Json.decodeFromString<ApiResponses.ResponseEntryList<ApiResponses.ResponseEntry<RoomDto>>>(
+            Json.decodeFromString<ResponseEntryList<ApiResponses.ResponseEntry<RoomPresentation.RoomEntryDto>>>(
                 it.bodyAsString(),
             ).entries.map { responseEntry ->
                 responseEntry.entry.toRoom()
@@ -81,6 +84,13 @@ class WebClient(vertx: Vertx) :
             .sendJson(Json.encodeToString(surgeryReportIntegration.toSurgeryReportIngrationDto())).map {
                 it.statusCode() == HttpResponseStatus.OK.code()
             }
+
+    override fun getRoomEnvironmentalInfo(roomId: RoomData.RoomId): Future<Room> =
+        client.getAbs("$BM_URI/rooms/${roomId.id}").send().map {
+            Json.decodeFromString<RoomPresentation.RoomDto>(
+                it.bodyAsString(),
+            ).toRoom()
+        }
 
     companion object {
         private val UMI_URI = System.getenv("USER_MANAGEMENT_MICROSERVICE_URL")
