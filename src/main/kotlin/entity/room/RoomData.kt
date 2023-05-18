@@ -8,12 +8,15 @@
 
 package entity.room
 
+import kotlinx.serialization.Serializable
+
 /**
  * Module with all data necessary for [Room] entity.
  */
 object RoomData {
 
     /** The [id] of the [Room]. */
+    @Serializable
     data class RoomId(val id: String) {
         init {
             // Constructor validation: The id must not be empty
