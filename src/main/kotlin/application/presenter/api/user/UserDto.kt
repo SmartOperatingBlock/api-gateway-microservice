@@ -6,7 +6,7 @@
  * https://opensource.org/licenses/MIT.
  */
 
-package application.presenter.api
+package application.presenter.api.user
 
 import entity.user.Password
 import entity.user.User

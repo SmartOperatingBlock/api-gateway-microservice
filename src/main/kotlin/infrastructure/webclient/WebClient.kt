@@ -15,7 +15,7 @@ import application.presenter.api.report.toSurgeryReportEntry
 import application.presenter.api.report.toSurgeryReportIngrationDto
 import application.presenter.api.room.RoomPresentation
 import application.presenter.api.room.RoomSerialization.toRoom
-import application.presenter.api.toUserDto
+import application.presenter.api.user.toUserDto
 import application.presenter.api.util.ApiResponses
 import application.presenter.api.util.ApiResponses.ResponseEntryList
 import entity.report.SurgeryReportEntry
