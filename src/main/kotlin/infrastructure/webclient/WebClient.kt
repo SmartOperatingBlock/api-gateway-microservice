@@ -8,9 +8,17 @@
 
 package infrastructure.webclient
 import application.presenter.api.RoomDto
+import application.presenter.api.SurgeryReportEntryDto
+import application.presenter.api.SurgeryReportInfoDto
 import application.presenter.api.toRoom
+import application.presenter.api.toSurgeryNameInfo
+import application.presenter.api.toSurgeryReportEntry
+import application.presenter.api.toSurgeryReportIngrationDto
 import application.presenter.api.toUserDto
 import application.presenter.api.util.ApiResponses
+import entity.SurgeryReportEntry
+import entity.SurgeryReportInfo
+import entity.SurgeryReportIntegration
 import entity.room.Room
 import entity.user.User
 import io.netty.handler.codec.http.HttpResponseStatus
@@ -20,10 +28,16 @@ import io.vertx.ext.web.client.WebClient
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import usecase.repository.AuthenticationRepository
-import usecase.repository.RoomRepository
+import usecase.repository.SurgeryReportArchiveRepository
+import usecase.repository.SurgeryReportInfoRepository
+import usecase.repository.SurgeryReportIntegrationRepository
 
 /** The Web Client responsible to make HTTP request to other microservices. */
-class WebClient(vertx: Vertx) : AuthenticationRepository, RoomRepository {
+class WebClient(vertx: Vertx) :
+    AuthenticationRepository,
+    SurgeryReportArchiveRepository,
+    SurgeryReportInfoRepository,
+    SurgeryReportIntegrationRepository {
 
     init {
         MICROSERVICES_URL.forEach {
@@ -49,6 +63,24 @@ class WebClient(vertx: Vertx) : AuthenticationRepository, RoomRepository {
             }
         }
 
+    override fun getSurgeryReportArchive(): Future<List<SurgeryReportEntry>> =
+        client.getAbs("$SR_URI/surgery-reports").send().map { res ->
+            Json.decodeFromString<List<SurgeryReportEntryDto>>(res.bodyAsString()).map { sr ->
+                sr.toSurgeryReportEntry()
+            }
+        }
+
+    override fun getSurgeryReportInfo(processId: String): Future<SurgeryReportInfo> =
+        client.getAbs("$SR_URI/surgery-reports/$processId").send().map { res ->
+            Json.decodeFromString<SurgeryReportInfoDto>(res.bodyAsString()).toSurgeryNameInfo()
+        }
+
+    override fun integrateReport(surgeryReportIntegration: SurgeryReportIntegration): Future<Boolean> =
+        client.patchAbs("$SR_URI/surgery-report-integration")
+            .sendJson(Json.encodeToString(surgeryReportIntegration.toSurgeryReportIngrationDto())).map {
+                it.statusCode() == HttpResponseStatus.OK.code()
+            }
+
     companion object {
         private val UMI_URI = System.getenv("USER_MANAGEMENT_MICROSERVICE_URL")
         private val BM_URI = System.getenv("BUILDING_MANAGEMENT_MICROSERVICE_URL")
@@ -56,5 +88,6 @@ class WebClient(vertx: Vertx) : AuthenticationRepository, RoomRepository {
             UMI_URI,
             BM_URI,
         )
+
     }
 }
