@@ -9,6 +9,7 @@
 package usecase.repository
 
 import entity.room.Room
+import entity.room.RoomData
 import io.vertx.core.Future
 
 /**
@@ -20,4 +21,9 @@ interface RoomRepository {
      * Return a list with all the [Room] that are within the Operating Block.
      */
     fun getRooms(): Future<List<Room>>
+
+    /**
+     * Return the environmental information of a [Room] by its [roomId].
+     */
+    fun getRoomEnvironmentalInfo(roomId: RoomData.RoomId): Future<Room>
 }
