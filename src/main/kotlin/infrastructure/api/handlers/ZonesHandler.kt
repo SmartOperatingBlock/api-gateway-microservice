@@ -8,8 +8,9 @@
 
 package infrastructure.api.handlers
 
-import application.presenter.api.NumberOfZonesDto
+import application.presenter.api.ZoneInfoDto
 import application.service.RoomService
+import entity.room.RoomData
 import infrastructure.provider.Provider
 import io.netty.handler.codec.http.HttpResponseStatus
 import io.vertx.core.Handler
@@ -25,12 +26,23 @@ class ZonesHandler(
 ) : Handler<RoutingContext> {
 
     override fun handle(routingContext: RoutingContext) {
-        RoomService.GetRooms(provider.webClient).execute().onSuccess {
-            it.map { room ->
+        RoomService.GetRooms(provider.webClient).execute().onSuccess { rooms ->
+            rooms.map {
+                    room ->
                 room.zoneId.id
-            }.distinct().count().run {
+            }.distinct().toList().map { zoneId ->
+                ZoneInfoDto(
+                    zoneId,
+                    rooms.firstOrNull {
+                        it.zoneId.id == zoneId && it.type == RoomData.RoomType.PRE_OPERATING_ROOM
+                    }?.id?.id,
+                    rooms.firstOrNull {
+                        it.zoneId.id == zoneId && it.type == RoomData.RoomType.OPERATING_ROOM
+                    }?.id?.id,
+                )
+            }.run {
                 routingContext.response().setStatusCode(HttpResponseStatus.OK.code()).end(
-                    Json.encodeToString(NumberOfZonesDto(this)),
+                    Json.encodeToString(this),
                 )
             }
         }
