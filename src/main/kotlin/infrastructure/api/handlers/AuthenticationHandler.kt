@@ -8,8 +8,8 @@
 
 package infrastructure.api.handlers
 
-import application.presenter.api.UserDto
-import application.presenter.api.toUser
+import application.presenter.api.user.UserDto
+import application.presenter.api.user.toUser
 import infrastructure.provider.Provider
 import io.netty.handler.codec.http.HttpResponseStatus
 import io.vertx.core.Handler
