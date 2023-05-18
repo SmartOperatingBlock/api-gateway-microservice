@@ -9,6 +9,7 @@
 package infrastructure.api
 
 import infrastructure.api.handlers.AuthenticationHandler
+import infrastructure.api.handlers.RoomInfoHandler
 import infrastructure.api.handlers.SurgeryReportInfoHandler
 import infrastructure.api.handlers.SurgeryReportIntegrationHandler
 import infrastructure.api.handlers.SurgeryReportsArchiveHandler
@@ -32,6 +33,7 @@ class ObdApiGatewayVerticle(
         router.get("$endpoint/surgery-reports").handler(SurgeryReportsArchiveHandler(provider))
         router.get("$endpoint/surgery-reports/:processId").handler(SurgeryReportInfoHandler(provider))
         router.patch("$endpoint/surgery-report-integration").handler(SurgeryReportIntegrationHandler(provider))
+        router.get("$endpoint/room-info/:roomId").handler(RoomInfoHandler(provider))
 
         vertx.createHttpServer()
             .requestHandler(router)
