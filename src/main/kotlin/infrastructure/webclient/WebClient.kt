@@ -28,6 +28,7 @@ import io.vertx.ext.web.client.WebClient
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import usecase.repository.AuthenticationRepository
+import usecase.repository.RoomRepository
 import usecase.repository.SurgeryReportArchiveRepository
 import usecase.repository.SurgeryReportInfoRepository
 import usecase.repository.SurgeryReportIntegrationRepository
@@ -37,8 +38,8 @@ class WebClient(vertx: Vertx) :
     AuthenticationRepository,
     SurgeryReportArchiveRepository,
     SurgeryReportInfoRepository,
-    SurgeryReportIntegrationRepository {
-
+    SurgeryReportIntegrationRepository,
+    RoomRepository {
     init {
         MICROSERVICES_URL.forEach {
             checkNotNull(it) {
@@ -84,10 +85,11 @@ class WebClient(vertx: Vertx) :
     companion object {
         private val UMI_URI = System.getenv("USER_MANAGEMENT_MICROSERVICE_URL")
         private val BM_URI = System.getenv("BUILDING_MANAGEMENT_MICROSERVICE_URL")
+        private val SR_URI = System.getenv("SURGERY_REPORT_MICROSERVICE_URL")
         private val MICROSERVICES_URL = listOf<String?>(
             UMI_URI,
             BM_URI,
+            SR_URI,
         )
-
     }
 }
