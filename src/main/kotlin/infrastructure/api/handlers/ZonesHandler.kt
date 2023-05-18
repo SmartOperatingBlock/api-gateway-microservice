@@ -8,7 +8,7 @@
 
 package infrastructure.api.handlers
 
-import application.presenter.api.ZoneInfoDto
+import application.presenter.api.room.ZoneInfoDto
 import application.service.RoomService
 import entity.room.RoomData
 import infrastructure.provider.Provider

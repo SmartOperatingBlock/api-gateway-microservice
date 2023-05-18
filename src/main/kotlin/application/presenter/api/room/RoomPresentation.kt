@@ -6,7 +6,7 @@
  * https://opensource.org/licenses/MIT.
  */
 
-package application.presenter.api
+package application.presenter.api.room
 
 import kotlinx.serialization.Serializable
 
