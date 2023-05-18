@@ -14,10 +14,20 @@ package entity.room
 object RoomData {
 
     /** The [id] of the [Room]. */
-    data class RoomId(val id: String)
+    data class RoomId(val id: String) {
+        init {
+            // Constructor validation: The id must not be empty
+            require(this.id.isNotEmpty())
+        }
+    }
 
     /** The [id] of the zone. */
-    data class ZoneId(val id: String)
+    data class ZoneId(val id: String) {
+        init {
+            // Constructor validation: The id must not be empty
+            require(this.id.isNotEmpty())
+        }
+    }
 
     /** The [Room] type. */
     enum class RoomType {
