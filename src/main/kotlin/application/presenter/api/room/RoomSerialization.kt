@@ -6,11 +6,11 @@
  * https://opensource.org/licenses/MIT.
  */
 
-package application.presenter.api
+package application.presenter.api.room
 
-import application.presenter.api.RoomPresentation.RoomApiDtoType
-import application.presenter.api.RoomPresentation.RoomDto
-import application.presenter.api.RoomPresentation.RoomEntryDto
+import application.presenter.api.room.RoomPresentation.RoomApiDtoType
+import application.presenter.api.room.RoomPresentation.RoomDto
+import application.presenter.api.room.RoomPresentation.RoomEntryDto
 import entity.environment.EnvironmentData
 import entity.environment.RoomEnvironmentalData
 import entity.room.Room

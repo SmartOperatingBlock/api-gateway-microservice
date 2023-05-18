@@ -8,7 +8,7 @@
 
 package infrastructure.api.handlers
 
-import application.presenter.api.RoomSerialization.toRoomDto
+import application.presenter.api.room.RoomSerialization.toRoomDto
 import application.service.RoomService
 import entity.room.RoomData
 import infrastructure.provider.Provider
