@@ -8,7 +8,7 @@
 
 package application.service
 
-import entity.SurgeryReportEntry
+import entity.report.SurgeryReportEntry
 import io.vertx.core.Future
 import usecase.repository.SurgeryReportArchiveRepository
 

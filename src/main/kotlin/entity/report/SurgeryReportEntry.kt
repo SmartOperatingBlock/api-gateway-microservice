@@ -6,7 +6,7 @@
  * https://opensource.org/licenses/MIT.
  */
 
-package entity
+package entity.report
 
 import java.time.Instant
 
