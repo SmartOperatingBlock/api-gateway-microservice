@@ -9,7 +9,7 @@
 package infrastructure.api.handlers
 
 import application.presenter.api.report.toSurgeryReportInfoDto
-import application.service.SurgeryReportInfoService
+import application.service.SurgeryReportService.SurgeryReportInfoService
 import infrastructure.provider.Provider
 import io.netty.handler.codec.http.HttpResponseStatus
 import io.vertx.core.Handler
@@ -25,7 +25,10 @@ class SurgeryReportInfoHandler(
 ) : Handler<RoutingContext> {
 
     override fun handle(routingContext: RoutingContext) {
-        SurgeryReportInfoService(routingContext.pathParam("processId"), provider.webClient).execute().onComplete {
+        SurgeryReportInfoService(
+            routingContext.pathParam("processId"),
+            provider.webClient,
+        ).execute().onComplete {
             routingContext
                 .response()
                 .setStatusCode(HttpResponseStatus.OK.code())
