@@ -8,8 +8,8 @@
 
 package infrastructure.api.handlers
 
-import application.presenter.api.SurgeryReportIntegrationDto
-import application.presenter.api.toSurgeryReportIntegration
+import application.presenter.api.report.SurgeryReportIntegrationDto
+import application.presenter.api.report.toSurgeryReportIntegration
 import infrastructure.provider.Provider
 import io.netty.handler.codec.http.HttpResponseStatus
 import io.vertx.core.Handler

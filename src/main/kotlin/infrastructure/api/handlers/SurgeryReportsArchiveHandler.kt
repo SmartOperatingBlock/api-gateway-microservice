@@ -8,7 +8,7 @@
 
 package infrastructure.api.handlers
 
-import application.presenter.api.toSurgeryReportEntryDto
+import application.presenter.api.report.toSurgeryReportEntryDto
 import application.service.SurgeryReportArchiveService
 import infrastructure.provider.Provider
 import io.vertx.core.Handler
