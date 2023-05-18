@@ -11,8 +11,7 @@ package application.service
 import entity.report.SurgeryReportEntry
 import entity.report.SurgeryReportInfo
 import io.vertx.core.Future
-import usecase.repository.SurgeryReportArchiveRepository
-import usecase.repository.SurgeryReportInfoRepository
+import usecase.repository.SurgeryReportRepository
 
 /**
  * Module with all ApplicationService for SurgeryReport.
@@ -23,7 +22,7 @@ object SurgeryReportService {
      * Class that models surgery report archive application service.
      */
     class SurgeryReportArchiveService(
-        private val repository: SurgeryReportArchiveRepository,
+        private val repository: SurgeryReportRepository,
     ) : ApplicationService<Future<List<SurgeryReportEntry>>> {
 
         override fun execute(): Future<List<SurgeryReportEntry>> = repository.getSurgeryReportArchive()
@@ -34,7 +33,7 @@ object SurgeryReportService {
      */
     class SurgeryReportInfoService(
         private val processId: String,
-        private val repository: SurgeryReportInfoRepository,
+        private val repository: SurgeryReportRepository,
     ) : ApplicationService<Future<SurgeryReportInfo>> {
 
         override fun execute(): Future<SurgeryReportInfo> = repository.getSurgeryReportInfo(processId)
