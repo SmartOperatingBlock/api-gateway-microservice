@@ -22,8 +22,8 @@ object ProcessService {
      * Get a [SurgicalProcess] by the [preOperatingRoomId] and the [operatingRoomId] using a [processRepository].
      */
     class GetProcessInfoByRoomId(
-        private val preOperatingRoomId: RoomData.RoomId,
-        private val operatingRoomId: RoomData.RoomId,
+        private val preOperatingRoomId: RoomData.RoomId?,
+        private val operatingRoomId: RoomData.RoomId?,
         private val processRepository: SurgicalProcessRepository,
     ) : ApplicationService<Future<SurgicalProcess?>> {
 
