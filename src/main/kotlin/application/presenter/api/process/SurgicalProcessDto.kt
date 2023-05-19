@@ -67,3 +67,9 @@ fun SurgicalProcessDto.toSurgicalProcess() = SurgicalProcess(
     ProcessData.ProcessState.valueOf(this.state),
     ProcessData.ProcessStep.valueOf(this.step),
 )
+
+/** The Dto for the [state] and [step] information of a [SurgicalProcess]. */
+data class ProcessStateInfoDto(
+    val state: String,
+    val step: String,
+)
