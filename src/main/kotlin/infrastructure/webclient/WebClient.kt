@@ -95,8 +95,8 @@ class WebClient(vertx: Vertx) :
         }
 
     override fun getSurgicalProcessInfoByRoomId(
-        preOperatingRoomId: RoomData.RoomId,
-        operatingRoomId: RoomData.RoomId,
+        preOperatingRoomId: RoomData.RoomId?,
+        operatingRoomId: RoomData.RoomId?,
     ): Future<SurgicalProcess?> =
         client.getAbs("$SPMS_URI/processes").send().map {
             Json.decodeFromString<ResponseEntryList<SurgicalProcessDto>>(
@@ -104,8 +104,8 @@ class WebClient(vertx: Vertx) :
             ).entries.map { processDto ->
                 processDto.toSurgicalProcess()
             }.firstOrNull { process ->
-                process.preOperatingRoom.id.id == preOperatingRoomId.id ||
-                    process.operatingRoom.id.id == operatingRoomId.id
+                process.preOperatingRoom.id.id == preOperatingRoomId?.id ||
+                    process.operatingRoom.id.id == operatingRoomId?.id
             }
         }
 

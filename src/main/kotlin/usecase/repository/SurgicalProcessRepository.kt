@@ -21,7 +21,7 @@ interface SurgicalProcessRepository {
      * Get a [SurgicalProcess] by the [preOperatingRoomId] and the [operatingRoomId].
      */
     fun getSurgicalProcessInfoByRoomId(
-        preOperatingRoomId: RoomData.RoomId,
-        operatingRoomId: RoomData.RoomId,
+        preOperatingRoomId: RoomData.RoomId?,
+        operatingRoomId: RoomData.RoomId?,
     ): Future<SurgicalProcess?>
 }
