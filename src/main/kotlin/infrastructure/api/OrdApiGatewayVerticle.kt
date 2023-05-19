@@ -8,6 +8,8 @@
 
 package infrastructure.api
 
+import infrastructure.api.handlers.ProcessStateHandler
+import infrastructure.api.handlers.RoomInfoHandler
 import infrastructure.provider.Provider
 import io.vertx.core.AbstractVerticle
 import io.vertx.ext.web.Router
@@ -22,15 +24,17 @@ class OrdApiGatewayVerticle(
     private val router = Router.router(this.vertx)
 
     override fun start() {
+        router.get("$endpoint/room-info/:roomId").handler(RoomInfoHandler(provider))
+        router.get("$endpoint/process-state").handler(ProcessStateHandler(provider))
+
         vertx.createHttpServer()
             .requestHandler(router)
             .listen(port)
-        provider.webClient
     }
 
     companion object {
-        // private const val version = "v1"
-        // private const val endpoint = "/api/$version/ord"
+        private const val version = "v1"
+        private const val endpoint = "/api/$version/ord"
         private const val port = 3001
     }
 }
