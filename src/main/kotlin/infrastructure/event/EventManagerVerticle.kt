@@ -10,6 +10,7 @@ package infrastructure.event
 
 import application.presenter.event.ProcessEvent
 import application.presenter.event.payload.ProcessEventPayloads.CustomLightRequestEvent
+import application.presenter.event.payload.ProcessEventPayloads.MedicalTechnologyAutomationRequestEvent
 import application.presenter.event.payload.ProcessEventPayloads.ProcessManualEvent
 import application.presenter.event.payload.ProcessEventPayloads.StopCustomLightEvent
 import infrastructure.event.util.KafkaProperties.consumerProperties
@@ -56,6 +57,12 @@ class EventManagerVerticle(
             val event = Json.decodeFromString<ProcessEvent<StopCustomLightEvent>>(message.body())
             kafkaProducer.send(KafkaProducerRecord.create(automationRequestsEventsTopic, event.key, message.body()))
         }
+
+        this.vertx.eventBus().consumer(medicalTechnologyAutomationRequestsTopic) { message ->
+            val event = Json.decodeFromString<ProcessEvent<MedicalTechnologyAutomationRequestEvent>>(message.body())
+            kafkaProducer.send(KafkaProducerRecord.create(automationRequestsEventsTopic, event.key, message.body()))
+        }
+
         provider.webClient
         kafkaConsumer.asStream()
     }
@@ -65,6 +72,7 @@ class EventManagerVerticle(
         private val SCHEMA_REGISTRY_URL = System.getenv("SCHEMA_REGISTRY_URL")
         private const val processManualEventTopic = "process-manual-events"
         private const val automationRequestsEventsTopic = "automation-requests-events"
+        private const val medicalTechnologyAutomationRequestsTopic = "medical-technology-automation-requests-events"
         private const val stopCustomLightTopic = "stop-custom-light-events"
     }
 }
