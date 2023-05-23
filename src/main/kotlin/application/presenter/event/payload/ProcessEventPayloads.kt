@@ -32,4 +32,10 @@ object ProcessEventPayloads {
         val ambientLightLux: Int,
         val surgicalLightLux: Int,
     ) : ProcessEventPayload
+
+    /**
+     * The payload of stop custom light request event composed by the [roomId].
+     */
+    @Serializable
+    data class StopCustomLightEvent(val roomId: String) : ProcessEventPayload
 }
