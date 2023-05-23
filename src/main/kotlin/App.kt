@@ -1,5 +1,6 @@
 import infrastructure.api.ObdApiGatewayVerticle
 import infrastructure.api.OrdApiGatewayVerticle
+import infrastructure.event.EventManagerVerticle
 import infrastructure.provider.Provider
 import infrastructure.provider.ProviderImpl
 import io.vertx.core.Vertx
@@ -20,4 +21,5 @@ fun main() {
     val provider: Provider = ProviderImpl(vertx)
     vertx.deployVerticle(ObdApiGatewayVerticle(provider))
     vertx.deployVerticle(OrdApiGatewayVerticle(provider))
+    vertx.deployVerticle(EventManagerVerticle(provider))
 }
