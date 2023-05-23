@@ -8,9 +8,9 @@
 
 package infrastructure.event
 
-import application.presenter.event.Event
 import application.presenter.event.ProcessEvent
-import application.presenter.event.payload.ProcessEventPayloads
+import application.presenter.event.payload.ProcessEventPayloads.CustomLightRequestEvent
+import application.presenter.event.payload.ProcessEventPayloads.ProcessManualEvent
 import infrastructure.event.util.KafkaProperties.consumerProperties
 import infrastructure.event.util.KafkaProperties.producerProperties
 import infrastructure.provider.Provider
@@ -36,16 +36,19 @@ class EventManagerVerticle(
     }
 
     override fun start() {
-        val kafkaProducer: KafkaProducer<String, Event<*>> =
+        val kafkaProducer: KafkaProducer<String, String> =
             KafkaProducer.create(vertx, producerProperties(BOOTSTRAP_SERVER_URL, SCHEMA_REGISTRY_URL))
         val kafkaConsumer: KafkaConsumer<String, String> =
             KafkaConsumer.create(vertx, consumerProperties(BOOTSTRAP_SERVER_URL, SCHEMA_REGISTRY_URL))
 
         this.vertx.eventBus().consumer(processManualEventTopic) { message ->
-            val event = Json.decodeFromString<ProcessEvent<ProcessEventPayloads.ProcessManualEvent>>(message.body())
-            val producerRecord: KafkaProducerRecord<String, Event<*>> =
-                KafkaProducerRecord.create(processManualEventTopic, event.key, event)
-            kafkaProducer.send(producerRecord)
+            val event = Json.decodeFromString<ProcessEvent<ProcessManualEvent>>(message.body())
+            kafkaProducer.send(KafkaProducerRecord.create(processManualEventTopic, event.key, message.body()))
+        }
+
+        this.vertx.eventBus().consumer(automationRequestsEventsTopic) { message ->
+            val event = Json.decodeFromString<ProcessEvent<CustomLightRequestEvent>>(message.body())
+            kafkaProducer.send(KafkaProducerRecord.create(automationRequestsEventsTopic, event.key, message.body()))
         }
 
         provider.webClient
@@ -56,5 +59,6 @@ class EventManagerVerticle(
         private val BOOTSTRAP_SERVER_URL = System.getenv("BOOTSTRAP_SERVER_URL")
         private val SCHEMA_REGISTRY_URL = System.getenv("SCHEMA_REGISTRY_URL")
         private const val processManualEventTopic = "process-manual-events"
+        private const val automationRequestsEventsTopic = "automation-requests-events"
     }
 }
