@@ -8,6 +8,7 @@
 
 package infrastructure.api
 
+import infrastructure.api.handlers.CustomScenarioHandler
 import infrastructure.api.handlers.ProcessManualEventHandler
 import infrastructure.api.handlers.ProcessStateHandler
 import infrastructure.api.handlers.RoomInfoHandler
@@ -27,8 +28,8 @@ class OrdApiGatewayVerticle(
     override fun start() {
         router.get("$endpoint/room-info/:roomId").handler(RoomInfoHandler(provider))
         router.get("$endpoint/process-state").handler(ProcessStateHandler(provider))
-        router.post("$endpoint/process-manual-events").handler(ProcessManualEventHandler())
-
+        router.post("$endpoint/process-manual-events").handler(ProcessManualEventHandler(this.vertx))
+        router.post("$endpoint/custom-automation-scenario").handler(CustomScenarioHandler(this.vertx))
         vertx.createHttpServer()
             .requestHandler(router)
             .listen(port)
