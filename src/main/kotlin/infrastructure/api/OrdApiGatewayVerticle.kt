@@ -8,6 +8,7 @@
 
 package infrastructure.api
 
+import infrastructure.api.handlers.AdaptEnvironmentHandler
 import infrastructure.api.handlers.CustomScenarioHandler
 import infrastructure.api.handlers.ProcessManualEventHandler
 import infrastructure.api.handlers.ProcessStateHandler
@@ -32,6 +33,8 @@ class OrdApiGatewayVerticle(
         router.post("$endpoint/process-manual-events").handler(ProcessManualEventHandler(this.vertx))
         router.post("$endpoint/custom-automation-scenario").handler(CustomScenarioHandler(this.vertx))
         router.post("$endpoint/stop-custom-automation-scenario").handler(StopCustomScenarioHandler(this.vertx))
+        router.post("$endpoint/adapt-environment").handler(AdaptEnvironmentHandler(this.vertx))
+
         vertx.createHttpServer()
             .requestHandler(router)
             .listen(port)
