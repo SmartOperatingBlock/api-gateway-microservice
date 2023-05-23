@@ -38,4 +38,13 @@ object ProcessEventPayloads {
      */
     @Serializable
     data class StopCustomLightEvent(val roomId: String) : ProcessEventPayload
+
+    /**
+     * The payload for medical technology automation request events composed by [roomId] and [medicalTechnologyType].
+     */
+    @Serializable
+    data class MedicalTechnologyAutomationRequestEvent(
+        val roomId: String,
+        val medicalTechnologyType: String,
+    ) : ProcessEventPayload
 }
