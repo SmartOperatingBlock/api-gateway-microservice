@@ -21,5 +21,5 @@ fun main() {
     val provider: Provider = ProviderImpl(vertx)
     vertx.deployVerticle(ObdApiGatewayVerticle(provider))
     vertx.deployVerticle(OrdApiGatewayVerticle(provider))
-    vertx.deployVerticle(EventManagerVerticle(provider))
+    vertx.deployVerticle(EventManagerVerticle())
 }
