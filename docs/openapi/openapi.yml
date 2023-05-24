@@ -1,0 +1,523 @@
+openapi: 3.0.0
+servers:
+  - description: Operating Block API Gateway
+    url: http://localhost:<port>/api/v1/obd/
+  - description: Operating Room API Gateway
+    url: http://localhost:<port>/api/v1/ord
+info:
+  description: This is the API of the Api gateway microservice within the Smart Operating Block project
+  version: 1.0.0
+  title: Api Gateway API
+  contact:
+    email: info@smartoperatingblock.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/license/mit/'
+
+tags:
+  - name: Auth API
+    description: This is the available API to authenticate users within the Operating Block.
+  - name: Surgery Report API
+    description: This is the available API to manage and obtain information about surgery reports.
+  - name: Room API
+    description: This is the available API to manage and obtain information about rooms.
+  - name: Zone API
+    description: This is the available API to manage and obtain information about zones.
+  - name: Process API
+    description: This is the available API to manage and obtain information about surgical processes.
+  - name: Automation Scenario API
+    description: This is the available API to manage and obtain information about automantion scenarios.
+  - name: Tracking API
+    description: This is the available API to manage and obtain information about health professionals tracking data.
+
+paths:
+  /auth:
+    post:
+      servers:
+        - url: http://localhost:<port>/api/v1/obd/
+      tags:
+        - Auth API
+      summary: authenticate user
+      operationId: authUser
+      description: Authenticate User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: Authentication succesful
+        '401':
+          description: Unathorized
+
+  /zones:
+    get:
+      servers:
+        - url: http://localhost:<port>/api/v1/obd/
+      tags:
+        - Zone API
+      summary: Get zone info
+      operationId: GetZoneInfo
+      description: Get information on Operating Block Zones
+      responses:
+        '200':
+          description: search result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfZones'
+
+  /surgery-reports:
+    get:
+      servers:
+        - url: http://localhost:<port>/api/v1/obd/
+      tags:
+        - Surgery Report API
+      summary: Get surgery report info
+      operationId: GetSurgeryReportInfo
+      description: Get information of surgery reports
+      responses:
+        '200':
+          description: search result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfSurgeryReports'
+
+  /surgery-reports/{processId}:
+    get:
+      servers:
+        - url: http://localhost:<port>/api/v1/obd/
+      tags:
+        - Surgery Report API
+      summary: Get surgery report info
+      operationId: GetSurgeryReportById
+      description: Get information of surgery reports
+      parameters:
+        - in: path
+          name: processId
+          description: the process ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: search result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SurgeryReport'
+
+  /surgery-report-integration:
+    patch:
+      servers:
+        - url: http://localhost:<port>/api/v1/obd/
+      tags:
+        - Surgery Report API
+      summary: Modify surgery report
+      operationId: modifySurgeryReportInfo
+      description: modify information of surgery reports
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SurgeryReportIntegration'
+      responses:
+        '200':
+          description: integration ok
+        '400':
+          description: bad request
+
+  /room-info/{roomId}:
+    get:
+      servers:
+        - url: http://localhost:<port>/api/v1/obd/
+        - url: http://localhost:<port>/api/v1/ord/
+      tags:
+        - Room API
+      summary: get the room environmental data
+      operationId: getRoomEnvironmentalData
+      description: Get room environmental data
+      parameters:
+        - in: path
+          name: roomId
+          description: the room's ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: search result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+
+  /process-info:
+    get:
+      servers:
+        - url: http://localhost:<port>/api/v1/obd/
+      tags:
+        - Process API
+      summary: get the process info
+      operationId: getProcessInfo
+      description: Get Process info
+      responses:
+        '200':
+          description: search result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SurgicalProcess'
+        '204':
+          description: No process found
+
+  /process-state:
+    get:
+      servers:
+        - url: http://localhost:<port>/api/v1/ord/
+      tags:
+        - Process API
+      summary: get the process state
+      operationId: getProcessState
+      description: Get Process state
+      parameters:
+        - in: query
+          name: operatingRoomId
+          description: the operating room's ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: search result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessStateInfo'
+        '204':
+          description: No process found
+
+  /process-manual-event:
+    post:
+      servers:
+        - url: http://localhost:<port>/api/v1/ord/
+      tags:
+        - Process API
+      summary: send process event
+      operationId: sendProcessEvent
+      description: Send process event
+      parameters:
+        - in: query
+          name: roomId
+          description: the room's ID
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: event
+          description: the process event
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: event received
+
+  /custom-automation-scenario:
+    post:
+      servers:
+        - url: http://localhost:<port>/api/v1/ord/
+      tags:
+        - Automation Scenario API
+      summary: custom automation scenario
+      operationId: customAutomationScenario
+      description: Send custom automation scenario
+      parameters:
+        - in: query
+          name: roomId
+          description: the room's ID
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: ambientLightLux
+          description: the ambient light lux
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: surgicalLightLux
+          description: the surgical light lux
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: custom scenario received
+
+  /stop-custom-automation-scenario:
+    post:
+      servers:
+        - url: http://localhost:<port>/api/v1/ord/
+      tags:
+        - Automation Scenario API
+      summary: stop custom automation scenario
+      operationId: stopCustomAutomationScenario
+      description: Stop custom automation scenario
+      parameters:
+        - in: query
+          name: roomId
+          description: the room's ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: stop custom scenario received
+
+  /adapt-environment:
+    post:
+      servers:
+        - url: http://localhost:<port>/api/v1/ord/
+      tags:
+        - Automation Scenario API
+      summary: adapt environment
+      operationId: adaptEnvironment
+      description: Adapt environment
+      parameters:
+        - in: query
+          name: roomId
+          description: the room's ID
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: medicalTechnologyType
+          description: the medical technology type
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: adapt environment received
+
+  /zone-hp-tracking-info:
+    get:
+      servers:
+        - url: http://localhost:<port>/api/v1/obd/
+      tags:
+        - Tracking API
+      summary: get Zone Tracking data
+      operationId: getZoneTrackingData
+      description: get Zone Tracking data
+      parameters:
+        - in: query
+          name: preOperatingRoomId
+          description: the pre operating room's ID
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: operatingRoomId
+          description: the operating room's ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: search result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackingData'
+
+  /block-hp-tracking-info:
+    get:
+      servers:
+        - url: http://localhost:<port>/api/v1/obd/
+      tags:
+        - Tracking API
+      summary: get Block Tracking data
+      operationId: getBlockTrackingData
+      description: get Block Tracking data
+      responses:
+        '200':
+          description: search result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackingData'
+
+components:
+  schemas:
+
+    User:
+      type: object
+      properties:
+        userId:
+          type: string
+        password:
+          type: string
+
+    ZoneInfo:
+      type: object
+      properties:
+        zoneId:
+          type: string
+        preOperatingRoomId:
+          type: string
+        operatingRoomId:
+          type: string
+
+    ProcessStateInfo:
+      type: object
+      properties:
+        state:
+          type: string
+        step:
+          type: string
+
+    SurgeryReport:
+      type: object
+      properties:
+        processId:
+          type: string
+        patientInfo:
+          type: string
+        processType:
+          type: string
+        processData:
+          type: string
+
+    SurgeryReportIntegration:
+      type: object
+      properties:
+        reportIntegration:
+          type: string
+
+
+    RoomType:
+      type: string
+      enum: [OPERATING_ROOM, PRE_OPERATING_ROOM]
+      example: OPERATING_ROOM
+
+
+    ArrayOfZones:
+      type: object
+      properties:
+        entries:
+          type: array
+          description: zone entries
+          items:
+            $ref: '#/components/schemas/ZoneInfo'
+        total:
+          type: integer
+          description: the total number of zone entries
+          example: 4
+
+    ArrayOfSurgeryReports:
+      type: array
+      description: the list of surgery reports
+      items:
+        $ref: '#/components/schemas/SurgeryReport'
+
+    RoomId:
+      type: object
+      properties:
+        id:
+          type: string
+
+    RoomWithType:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/RoomId'
+        type:
+          $ref: '#/components/schemas/RoomType'
+
+    SurgicalProcess:
+      type: object
+      properties:
+        processId:
+          type: string
+        dateTime:
+          type: string
+        type:
+          type: string
+        patientId:
+          type: string
+        healthProfessionalId:
+          type: string
+        preOperatingRoom:
+          $ref: '#/components/schemas/RoomWithType'
+        operatingRoom:
+          $ref: '#/components/schemas/RoomWithType'
+        state:
+          type: string
+        step:
+          type: string
+
+    Room:
+      type: object
+      properties:
+        id:
+          type: string
+          example: Room-#1
+        name:
+          type: string
+          example: Mario Rossi's Operating Room - Bufalini Hospital
+        zoneId:
+          type: string
+          example: Zone-#1
+        type:
+          $ref: '#/components/schemas/RoomType'
+        environmentalData:
+          $ref: '#/components/schemas/RoomEnvironmentalData'
+
+    RoomEnvironmentalData:
+      type: object
+      properties:
+        temperature:
+          type: object
+          properties:
+            value:
+              type: number
+              example: 25.3
+            unit:
+              type: string
+              enum: [CELSIUS, FAHRENHEIT]
+              example: CELSIUS
+        humidity:
+          type: number
+          example: 55.5
+        luminosity:
+          type: object
+          properties:
+            value:
+              type: number
+              example: 150.5
+            unit:
+              type: string
+              enum: [LUX]
+              example: LUX
+        presence:
+          type: boolean
+          example: true
+
+    TrackingData:
+      type: object
+      properties:
+        healthProfessionalId:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        role:
+          type: string
+        room:
+          type: string
