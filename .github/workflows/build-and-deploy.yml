@@ -99,6 +99,12 @@ jobs:
           code-documentation-generation-command: ./gradlew dokkaHtml
           code-documentation-dst-folder: './build/dokka/html'
           code-documentation-site-folder: 'documentation/code-doc'
+          should-generate-openapi-documentation: true
+          openapi-documentation-input-file: 'docs/openapi/openapi.yml'
+          openapi-documentation-dst-folder: 'documentation/openapi-doc'
+          should-generate-asyncapi-documentation: true
+          asyncapi-documentation-input-file: 'docs/asyncapi/asyncapi.yml'
+          asyncapi-documentation-dst-folder: 'documentation/asyncapi-doc'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           
   success:
