@@ -47,4 +47,16 @@ object ProcessEventPayloads {
         val roomId: String,
         val medicalTechnologyType: String,
     ) : ProcessEventPayload
+
+    /**
+     * The payload of automation proposal event composed by the [roomId], [medicalTechnologyType],
+     * [ambientLightLux] and [surgicalLightLux].
+     */
+    @Serializable
+    data class MedicalTechnologyAutomationProposalEvent(
+        val roomId: String,
+        val medicalTechnologyType: String,
+        val ambientLightLux: Int,
+        val surgicalLightLux: Int,
+    ) : ProcessEventPayload
 }
