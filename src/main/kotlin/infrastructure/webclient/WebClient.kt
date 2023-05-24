@@ -23,11 +23,11 @@ import application.presenter.api.user.toUserDto
 import application.presenter.api.util.ApiResponses
 import application.presenter.api.util.ApiResponses.ResponseEntryList
 import entity.process.SurgicalProcess
-import entity.report.SurgeryReportEntry
-import entity.report.SurgeryReportInfo
-import entity.report.SurgeryReportIntegration
 import entity.room.Room
 import entity.room.RoomData
+import entity.surgeryreport.SurgeryReportEntry
+import entity.surgeryreport.SurgeryReportInfo
+import entity.surgeryreport.SurgeryReportIntegration
 import entity.tracking.HealthProfessionalId
 import entity.tracking.HealthProfessionalName
 import entity.tracking.HealthProfessionalRole
