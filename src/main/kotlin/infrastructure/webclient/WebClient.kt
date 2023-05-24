@@ -17,6 +17,8 @@ import application.presenter.api.report.toSurgeryReportEntry
 import application.presenter.api.report.toSurgeryReportIngrationDto
 import application.presenter.api.room.RoomPresentation
 import application.presenter.api.room.RoomSerialization.toRoom
+import application.presenter.api.tracking.RoomsTrackingDataDto
+import application.presenter.api.user.HealthProfessionalDto
 import application.presenter.api.user.toUserDto
 import application.presenter.api.util.ApiResponses
 import application.presenter.api.util.ApiResponses.ResponseEntryList
@@ -26,6 +28,12 @@ import entity.report.SurgeryReportInfo
 import entity.report.SurgeryReportIntegration
 import entity.room.Room
 import entity.room.RoomData
+import entity.tracking.HealthProfessionalId
+import entity.tracking.HealthProfessionalName
+import entity.tracking.HealthProfessionalRole
+import entity.tracking.HealthProfessionalSurname
+import entity.tracking.HealthProfessionalTrackingInfo
+import entity.tracking.RoomId
 import entity.user.User
 import io.netty.handler.codec.http.HttpResponseStatus
 import io.vertx.core.Future
@@ -37,13 +45,15 @@ import usecase.repository.AuthenticationRepository
 import usecase.repository.RoomRepository
 import usecase.repository.SurgeryReportRepository
 import usecase.repository.SurgicalProcessRepository
+import usecase.repository.TrackingRepository
 
 /** The Web Client responsible to make HTTP request to other microservices. */
 class WebClient(vertx: Vertx) :
     AuthenticationRepository,
     SurgeryReportRepository,
     RoomRepository,
-    SurgicalProcessRepository {
+    SurgicalProcessRepository,
+    TrackingRepository {
 
     init {
         MICROSERVICES_URL.forEach {
@@ -70,19 +80,19 @@ class WebClient(vertx: Vertx) :
         }
 
     override fun getSurgeryReportArchive(): Future<List<SurgeryReportEntry>> =
-        client.getAbs("$SR_URI/surgery-reports").send().map { res ->
+        client.getAbs("$SR_URI/reports").send().map { res ->
             Json.decodeFromString<List<SurgeryReportEntryDto>>(res.bodyAsString()).map { sr ->
                 sr.toSurgeryReportEntry()
             }
         }
 
     override fun getSurgeryReportInfo(processId: String): Future<SurgeryReportInfo> =
-        client.getAbs("$SR_URI/surgery-reports/$processId").send().map { res ->
+        client.getAbs("$SR_URI/reports/$processId").send().map { res ->
             Json.decodeFromString<SurgeryReportInfoDto>(res.bodyAsString()).toSurgeryNameInfo()
         }
 
     override fun integrateReport(surgeryReportIntegration: SurgeryReportIntegration): Future<Boolean> =
-        client.patchAbs("$SR_URI/surgery-report-integration")
+        client.patchAbs("$SR_URI/reports")
             .sendJson(Json.encodeToString(surgeryReportIntegration.toSurgeryReportIngrationDto())).map {
                 it.statusCode() == HttpResponseStatus.OK.code()
             }
@@ -109,17 +119,64 @@ class WebClient(vertx: Vertx) :
             }
         }
 
+    override fun getZoneHealthProfessionalTrackingInfo(
+        preOperatingRoomId: String,
+        operatingRoomId: String,
+    ): Pair<Future<List<Future<HealthProfessionalTrackingInfo>>>,
+        Future<List<Future<HealthProfessionalTrackingInfo>>>,> {
+        val operatingTrackingData = client.getAbs("$ST_URI/rooms-tracking-data/$operatingRoomId").send().map {
+            Json.decodeFromString<RoomsTrackingDataDto>(it.bodyAsString())
+        }.map {
+            it.entries.map { en ->
+                getHealthProfessionalInfo(en.healthProfessionalId, en.roomId)
+            }
+        }
+        val preOperatingTrackingData = client.getAbs("$ST_URI/rooms-tracking-data/$preOperatingRoomId").send().map {
+            Json.decodeFromString<RoomsTrackingDataDto>(it.bodyAsString())
+        }.map {
+            it.entries.map { en ->
+                getHealthProfessionalInfo(en.healthProfessionalId, en.roomId)
+            }
+        }
+        return Pair(operatingTrackingData, preOperatingTrackingData)
+    }
+
+    private fun getHealthProfessionalInfo(hpId: String, roomId: String): Future<HealthProfessionalTrackingInfo> {
+        return client.getAbs("$UMI_URI/healthProfessionals/$hpId").send().map {
+            val hp = Json.decodeFromString<HealthProfessionalDto>(it.bodyAsString())
+            println("hp name = ${hp.name}")
+            HealthProfessionalTrackingInfo(
+                HealthProfessionalId(hpId),
+                HealthProfessionalName(hp.name),
+                HealthProfessionalSurname(hp.surname),
+                HealthProfessionalRole(hp.role),
+                RoomId(roomId),
+            )
+        }
+    }
+
+    override fun getBlockHealthProfessionalTrackingInfo(): Future<List<Future<HealthProfessionalTrackingInfo>>> =
+        client.getAbs("$ST_URI/block-tracking-data").send().map {
+            Json.decodeFromString<RoomsTrackingDataDto>(it.bodyAsString())
+        }.map {
+            it.entries.map { en ->
+                getHealthProfessionalInfo(en.healthProfessionalId, en.roomId)
+            }
+        }
+
     companion object {
         private val UMI_URI = System.getenv("USER_MANAGEMENT_MICROSERVICE_URL")
         private val BM_URI = System.getenv("BUILDING_MANAGEMENT_MICROSERVICE_URL")
         private val SR_URI = System.getenv("SURGERY_REPORT_MICROSERVICE_URL")
         private val SPMS_URI = System.getenv("SURGICAL_PROCESS_MONITORING_MICROSERVICE_URL")
+        private val ST_URI = System.getenv("STAFF_TRACKING_MICROSERVICE_URL")
 
         private val MICROSERVICES_URL = listOf<String?>(
             UMI_URI,
             BM_URI,
             SR_URI,
             SPMS_URI,
+            ST_URI,
         )
     }
 }
