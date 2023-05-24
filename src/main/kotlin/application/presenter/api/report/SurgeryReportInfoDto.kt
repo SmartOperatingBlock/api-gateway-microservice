@@ -8,11 +8,11 @@
 
 package application.presenter.api.report
 
-import entity.report.PatientName
-import entity.report.SurgeryId
-import entity.report.SurgeryName
-import entity.report.SurgeryReportEntry
-import entity.report.SurgeryReportInfo
+import entity.surgeryreport.PatientName
+import entity.surgeryreport.SurgeryId
+import entity.surgeryreport.SurgeryName
+import entity.surgeryreport.SurgeryReportEntry
+import entity.surgeryreport.SurgeryReportInfo
 import kotlinx.serialization.Serializable
 
 /**

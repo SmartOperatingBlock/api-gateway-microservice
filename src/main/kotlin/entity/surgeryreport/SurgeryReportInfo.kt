@@ -6,7 +6,7 @@
  * https://opensource.org/licenses/MIT.
  */
 
-package entity.report
+package entity.surgeryreport
 
 /**
  * Models the surgery report info.

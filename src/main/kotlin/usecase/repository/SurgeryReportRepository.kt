@@ -8,9 +8,9 @@
 
 package usecase.repository
 
-import entity.report.SurgeryReportEntry
-import entity.report.SurgeryReportInfo
-import entity.report.SurgeryReportIntegration
+import entity.surgeryreport.SurgeryReportEntry
+import entity.surgeryreport.SurgeryReportInfo
+import entity.surgeryreport.SurgeryReportIntegration
 import io.vertx.core.Future
 
 /**

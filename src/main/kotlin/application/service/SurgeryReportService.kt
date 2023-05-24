@@ -8,8 +8,8 @@
 
 package application.service
 
-import entity.report.SurgeryReportEntry
-import entity.report.SurgeryReportInfo
+import entity.surgeryreport.SurgeryReportEntry
+import entity.surgeryreport.SurgeryReportInfo
 import io.vertx.core.Future
 import usecase.repository.SurgeryReportRepository
 
