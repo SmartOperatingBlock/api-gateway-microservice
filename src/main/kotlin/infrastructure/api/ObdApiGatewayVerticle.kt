@@ -9,11 +9,13 @@
 package infrastructure.api
 
 import infrastructure.api.handlers.AuthenticationHandler
+import infrastructure.api.handlers.BlockHealthProfessionalTrackingHandler
 import infrastructure.api.handlers.ProcessInfoHandler
 import infrastructure.api.handlers.RoomInfoHandler
 import infrastructure.api.handlers.SurgeryReportInfoHandler
 import infrastructure.api.handlers.SurgeryReportIntegrationHandler
 import infrastructure.api.handlers.SurgeryReportsArchiveHandler
+import infrastructure.api.handlers.ZoneHealthProfessionalTrackingHandler
 import infrastructure.api.handlers.ZonesHandler
 import infrastructure.provider.Provider
 import io.vertx.core.AbstractVerticle
@@ -36,6 +38,8 @@ class ObdApiGatewayVerticle(
         router.patch("$endpoint/surgery-report-integration").handler(SurgeryReportIntegrationHandler(provider))
         router.get("$endpoint/room-info/:roomId").handler(RoomInfoHandler(provider))
         router.get("$endpoint/process-info").handler(ProcessInfoHandler(provider))
+        router.get("$endpoint/zone-hp-tracking-info").handler(ZoneHealthProfessionalTrackingHandler(provider))
+        router.get("$endpoint/block-hp-tracking-info/").handler(BlockHealthProfessionalTrackingHandler(provider))
 
         vertx.createHttpServer()
             .requestHandler(router)
