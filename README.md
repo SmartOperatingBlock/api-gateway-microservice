@@ -24,4 +24,5 @@ The **API Gateway** microservice responsible to handle clients requests and to r
 ## Documentation
 - Check out the website [here](https://smartoperatingblock.github.io/api-gateway-microservice)
 - Check out the _REST-API_ documentation [here](https://smartoperatingblock.github.io/api-gateway-microservice/documentation/openapi-doc)
+- Check out the _Async-API_ documentation [here](https://smartoperatingblock.github.io/api-gateway-microservice/documentation/asyncapi-doc)
 - Check out the Code documentation here [here](https://smartoperatingblock.github.io/surgical-process-monitoring-microservice/documentation/code-doc)
