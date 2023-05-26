@@ -51,4 +51,17 @@ object HealthcareUserSerializer {
         saturationPercentage = this.saturationPercentage?.percentage?.value,
         bodyTemperature = this.bodyTemperature?.temperature?.let { ValueWithUnit(it.value, it.unit.toString()) },
     )
+
+    /**
+     * Extension method to obtain the vital signs from dto.
+     */
+    fun PatientVitalSignsApiDto.toPatientVitalSigns(): PatientVitalSigns = PatientVitalSigns(
+        heartBeat = this.heartBeat?.let { VitalSign.HeartBeat(it) },
+        diastolicBloodPressure = this.diastolicBloodPressure?.let { VitalSign.DiastolicBloodPressure(it) },
+        systolicBloodPressure = this.systolicBloodPressure?.let { VitalSign.SystolicBloodPressure(it) },
+        respiratoryRate = this.respiratoryRate?.let { VitalSign.RespiratoryRate(it) },
+        saturationPercentage = this.saturationPercentage?.let { Percentage(it) }
+            ?.let { VitalSign.SaturationPercentage(it) },
+        bodyTemperature = this.bodyTemperature?.let { Temperature(it.value) }?.let { VitalSign.BodyTemperature(it) },
+    )
 }
