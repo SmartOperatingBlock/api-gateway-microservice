@@ -26,4 +26,16 @@ object SurgicalProcessSerializer {
         SurgicalProcessStep.END_OF_SURGERY -> SurgicalProcessStepApiDto.END_OF_SURGERY
         SurgicalProcessStep.PATIENT_UNDER_OBSERVATION -> SurgicalProcessStepApiDto.PATIENT_UNDER_OBSERVATION
     }
+
+    /**
+     * Extension method to obtain the api dto of the surgical process step.
+     */
+    fun SurgicalProcessStepApiDto.toSurgicalProcessStep(): SurgicalProcessStep = when (this) {
+        SurgicalProcessStepApiDto.PATIENT_IN_PREPARATION -> SurgicalProcessStep.PATIENT_IN_PREPARATION
+        SurgicalProcessStepApiDto.PATIENT_ON_OPERATING_TABLE -> SurgicalProcessStep.PATIENT_ON_OPERATING_TABLE
+        SurgicalProcessStepApiDto.ANESTHESIA -> SurgicalProcessStep.ANESTHESIA
+        SurgicalProcessStepApiDto.SURGERY_IN_PROGRESS -> SurgicalProcessStep.SURGERY_IN_PROGRESS
+        SurgicalProcessStepApiDto.END_OF_SURGERY -> SurgicalProcessStep.END_OF_SURGERY
+        SurgicalProcessStepApiDto.PATIENT_UNDER_OBSERVATION -> SurgicalProcessStep.PATIENT_UNDER_OBSERVATION
+    }
 }

@@ -11,8 +11,10 @@ package application.presenter.serialization
 import application.presenter.api.report.tracking.TrackApiDtoType
 import application.presenter.api.report.tracking.TrackingInformationApiDto
 import entity.surgeryreport.healthprofessional.HealthProfessionalID
+import entity.surgeryreport.room.RoomID
 import entity.surgeryreport.tracking.TrackType
 import entity.surgeryreport.tracking.TrackingInfo
+import java.time.Instant
 
 /**
  * Serializers for data to return to API.
@@ -31,5 +33,20 @@ object TrackingInformationSerializer {
     private fun TrackType.toApiDtoType(): TrackApiDtoType = when (this) {
         TrackType.ENTER -> TrackApiDtoType.ENTER
         TrackType.EXIT -> TrackApiDtoType.EXIT
+    }
+
+    /**
+     * Extension method to obtain tracking information about an health professional from dto.
+     */
+    fun TrackingInformationApiDto.toTrackingInfo(): TrackingInfo<HealthProfessionalID> = TrackingInfo(
+        dateTime = Instant.parse(this.dateTime),
+        individual = HealthProfessionalID(this.healthProfessionalId),
+        roomID = RoomID(this.roomID),
+        trackType = this.trackType.toTrackType(),
+    )
+
+    private fun TrackApiDtoType.toTrackType(): TrackType = when (this) {
+        TrackApiDtoType.ENTER -> TrackType.ENTER
+        TrackApiDtoType.EXIT -> TrackType.EXIT
     }
 }
