@@ -10,11 +10,10 @@ package infrastructure.webclient
 
 import application.presenter.api.process.SurgicalProcessDto
 import application.presenter.api.process.toSurgicalProcess
+import application.presenter.api.report.SurgeryReportApiDto
 import application.presenter.api.report.SurgeryReportEntryDto
-import application.presenter.api.report.SurgeryReportInfoDto
-import application.presenter.api.report.toSurgeryNameInfo
 import application.presenter.api.report.toSurgeryReportEntry
-import application.presenter.api.report.toSurgeryReportIngrationDto
+import application.presenter.api.report.toSurgeryReportIntegrationDto
 import application.presenter.api.room.RoomPresentation
 import application.presenter.api.room.RoomSerialization.toRoom
 import application.presenter.api.tracking.RoomsTrackingDataDto
@@ -22,12 +21,13 @@ import application.presenter.api.user.HealthProfessionalDto
 import application.presenter.api.user.toUserDto
 import application.presenter.api.util.ApiResponses
 import application.presenter.api.util.ApiResponses.ResponseEntryList
+import application.presenter.serialization.SurgeryReportSerializer.toSurgeryReport
 import entity.process.SurgicalProcess
 import entity.room.Room
 import entity.room.RoomData
 import entity.surgeryreport.SurgeryReportEntry
-import entity.surgeryreport.SurgeryReportInfo
 import entity.surgeryreport.SurgeryReportIntegration
+import entity.surgeryreport.report.SurgeryReport
 import entity.tracking.HealthProfessionalId
 import entity.tracking.HealthProfessionalName
 import entity.tracking.HealthProfessionalRole
@@ -39,7 +39,6 @@ import io.netty.handler.codec.http.HttpResponseStatus
 import io.vertx.core.Future
 import io.vertx.core.Vertx
 import io.vertx.ext.web.client.WebClient
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import usecase.repository.AuthenticationRepository
 import usecase.repository.RoomRepository
@@ -93,10 +92,13 @@ class WebClient(vertx: Vertx) :
             Json.decodeFromString<SurgeryReportApiDto>(it.bodyAsString()).toSurgeryReport()
         }
 
-    override fun integrateReport(surgeryReportIntegration: SurgeryReportIntegration): Future<Boolean> =
-        client.patchAbs("$SR_URI/reports")
-            .sendJson(Json.encodeToString(surgeryReportIntegration.toSurgeryReportIngrationDto())).map {
-                it.statusCode() == HttpResponseStatus.OK.code()
+    override fun integrateReport(
+        surgicalProcessId: String,
+        surgeryReportIntegration: SurgeryReportIntegration,
+    ): Future<Boolean> =
+        client.patchAbs("$SR_URI/reports/$surgicalProcessId")
+            .sendJson(surgeryReportIntegration.toSurgeryReportIntegrationDto()).map {
+                it.statusCode() == HttpResponseStatus.NO_CONTENT.code()
             }
 
     override fun getRoomEnvironmentalInfo(roomId: RoomData.RoomId): Future<Room> =
