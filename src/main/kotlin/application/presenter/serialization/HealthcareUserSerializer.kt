@@ -13,6 +13,10 @@ import application.presenter.api.report.healthcareuser.PatientVitalSignsApiDto
 import application.presenter.api.report.measurements.ValueWithUnit
 import entity.surgeryreport.healthcareuser.HealthcareUser
 import entity.surgeryreport.healthcareuser.PatientVitalSigns
+import entity.surgeryreport.healthcareuser.TaxCode
+import entity.surgeryreport.healthcareuser.VitalSign
+import entity.surgeryreport.measurements.Percentage
+import entity.surgeryreport.measurements.Temperature
 
 /**
  * Serializers for data to return to API.
@@ -23,6 +27,15 @@ object HealthcareUserSerializer {
      */
     fun HealthcareUser.toApiDto(): HealthcareUserApiDto = HealthcareUserApiDto(
         taxCode = this.taxCode.value,
+        name = this.name,
+        surname = this.surname,
+    )
+
+    /**
+     * Extension method to obtain the api dto of a healthcare user.
+     */
+    fun HealthcareUserApiDto.toHealthcareUser(): HealthcareUser = HealthcareUser(
+        taxCode = TaxCode(this.taxCode),
         name = this.name,
         surname = this.surname,
     )
