@@ -9,7 +9,7 @@
 package application.service
 
 import entity.surgeryreport.SurgeryReportEntry
-import entity.surgeryreport.SurgeryReportInfo
+import entity.surgeryreport.report.SurgeryReport
 import io.vertx.core.Future
 import usecase.repository.SurgeryReportRepository
 
@@ -34,8 +34,8 @@ object SurgeryReportService {
     class SurgeryReportInfoService(
         private val processId: String,
         private val repository: SurgeryReportRepository,
-    ) : ApplicationService<Future<SurgeryReportInfo>> {
+    ) : ApplicationService<Future<SurgeryReport>> {
 
-        override fun execute(): Future<SurgeryReportInfo> = repository.getSurgeryReportInfo(processId)
+        override fun execute(): Future<SurgeryReport> = repository.getSurgeryReportInfo(processId)
     }
 }
