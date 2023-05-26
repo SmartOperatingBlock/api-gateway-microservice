@@ -25,14 +25,18 @@ class SurgeryReportIntegrationHandler(
 ) : Handler<RoutingContext> {
 
     override fun handle(routingContext: RoutingContext) {
-        routingContext.request().body().onComplete {
-            val integration = Json.decodeFromString<SurgeryReportIntegrationDto>(it.result().toString())
+        routingContext.request().body().onSuccess {
+            val integration = Json.decodeFromString<SurgeryReportIntegrationDto>(it.toString())
                 .toSurgeryReportIntegration()
-            SurgeryReportIntegrationUseCase(integration, provider.webClient).execute().onComplete { ar ->
+            SurgeryReportIntegrationUseCase(
+                routingContext.pathParam("processId"),
+                integration,
+                provider.webClient,
+            ).execute().onSuccess { result ->
                 routingContext
                     .response()
                     .setStatusCode(
-                        if (ar.result()) HttpResponseStatus.OK.code() else HttpResponseStatus.BAD_REQUEST.code(),
+                        if (result) HttpResponseStatus.OK.code() else HttpResponseStatus.BAD_REQUEST.code(),
                     ).end()
             }
         }
