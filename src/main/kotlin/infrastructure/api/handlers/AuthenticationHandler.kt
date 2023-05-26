@@ -25,8 +25,8 @@ class AuthenticationHandler(
 ) : Handler<RoutingContext> {
 
     override fun handle(routingContext: RoutingContext) {
-        routingContext.request().body().onComplete {
-            val user = Json.decodeFromString<UserDto>(it.result().toString()).toUser()
+        routingContext.request().body().onSuccess {
+            val user = Json.decodeFromString<UserDto>(it.toString()).toUser()
             AuthenticationUseCase(user, provider.webClient).execute().onComplete { ar ->
                 routingContext
                     .response()
