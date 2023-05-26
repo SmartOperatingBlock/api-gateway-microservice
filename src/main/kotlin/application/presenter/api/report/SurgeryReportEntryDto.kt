@@ -8,28 +8,33 @@
 
 package application.presenter.api.report
 
-import entity.surgeryreport.PatientInfo
-import entity.surgeryreport.ProcessDate
+import entity.surgeryreport.PatientId
+import entity.surgeryreport.PatientName
+import entity.surgeryreport.PatientSurname
 import entity.surgeryreport.ProcessId
-import entity.surgeryreport.ProcessType
+import entity.surgeryreport.SurgeryDate
 import entity.surgeryreport.SurgeryReportEntry
-import kotlinx.serialization.Contextual
+import entity.surgeryreport.SurgicalProcessDescription
 import kotlinx.serialization.Serializable
 import java.time.Instant
 
 /**
  * Class that model the principal information of a surgery report in the surgery report archive.
- * @param processId the id of the surgery process.
- * @param patientInfo the name and the surname of the patient.
- * @param processType the type of the surgery.
- * @param processDate the date of the surgery.
+ * @param surgicalProcessID the id of the surgical process.
+ * @param patientId the id of the patient.
+ * @param patientName the name of the patient.
+ * @param patientSurname the surname of the patient.
+ * @param surgicalProcessDescription the description of the surgical process.
+ * @param surgeryDate the date of the surgical process.
  */
 @Serializable
 data class SurgeryReportEntryDto(
-    val processId: String,
-    val patientInfo: String,
-    val processType: String,
-    @Contextual val processDate: Instant,
+    val surgicalProcessID: String,
+    val patientId: String,
+    val patientName: String?,
+    val patientSurname: String?,
+    val surgicalProcessDescription: String,
+    val surgeryDate: String,
 )
 
 /**
@@ -37,10 +42,12 @@ data class SurgeryReportEntryDto(
  */
 fun SurgeryReportEntryDto.toSurgeryReportEntry(): SurgeryReportEntry =
     SurgeryReportEntry(
-        ProcessId(this.processId),
-        PatientInfo(this.patientInfo),
-        ProcessType(this.processType),
-        ProcessDate(this.processDate),
+        ProcessId(this.surgicalProcessID),
+        PatientId(this.patientId),
+        this.patientName?.let { PatientName(it) },
+        this.patientSurname?.let { PatientSurname(it) },
+        SurgicalProcessDescription(this.surgicalProcessDescription),
+        SurgeryDate(Instant.parse(this.surgeryDate)),
     )
 
 /**
@@ -48,8 +55,10 @@ fun SurgeryReportEntryDto.toSurgeryReportEntry(): SurgeryReportEntry =
  */
 fun SurgeryReportEntry.toSurgeryReportEntryDto(): SurgeryReportEntryDto =
     SurgeryReportEntryDto(
-        this.processId.id,
-        this.patientInfo.patientInfo,
-        this.processType.processType,
-        this.processDate.processDate,
+        this.surgicalProcessID.id,
+        this.patientId.id,
+        this.patientName?.patientName,
+        this.patientSurname?.surname,
+        this.surgicalProcessDescription.description,
+        this.surgeryDate.date.toString(),
     )
