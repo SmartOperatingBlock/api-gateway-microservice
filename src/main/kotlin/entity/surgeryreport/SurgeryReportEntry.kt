@@ -8,20 +8,25 @@
 
 package entity.surgeryreport
 
+import kotlinx.serialization.Contextual
 import java.time.Instant
 
 /**
  * Class that model the principal information of a surgery report in the surgery report archive.
- * @param processId the id of the surgery process.
- * @param patientInfo the name and the surname of the patient.
- * @param processType the type of the surgery.
- * @param processDate the date of the surgery.
+ * @param surgicalProcessID the id of the surgical process.
+ * @param patientId the id of the patient.
+ * @param patientName the name of the patient.
+ * @param patientSurname the surname of the patient.
+ * @param surgicalProcessDescription the description of the surgical process.
+ * @param surgeryDate the date of the surgical process.
  */
 data class SurgeryReportEntry(
-    val processId: ProcessId,
-    val patientInfo: PatientInfo,
-    val processType: ProcessType,
-    val processDate: ProcessDate,
+    val surgicalProcessID: ProcessId,
+    val patientId: PatientId,
+    val patientName: PatientName?,
+    val patientSurname: PatientSurname?,
+    val surgicalProcessDescription: SurgicalProcessDescription,
+    @Contextual val surgeryDate: SurgeryDate,
 )
 
 /**
@@ -34,28 +39,33 @@ data class ProcessId(val id: String) {
 }
 
 /**
- * The [patientInfo].
+ * The [id] of the patient.
  */
-data class PatientInfo(val patientInfo: String) {
+data class PatientId(val id: String) {
     init {
-        require(patientInfo.isNotEmpty())
+        require(id.isNotEmpty())
     }
 }
 
 /**
- * The [processType].
+ * The [surname] of the patient.
  */
-data class ProcessType(val processType: String) {
+data class PatientSurname(val surname: String) {
     init {
-        require(processType.isNotEmpty())
+        require(surname.isNotEmpty())
     }
 }
 
 /**
- * The [processDate].
+ * The [description] of the surgical process.
  */
-data class ProcessDate(val processDate: Instant) {
+data class SurgicalProcessDescription(val description: String) {
     init {
-        require(processDate.isBefore(Instant.now()))
+        require(description.isNotEmpty())
     }
 }
+
+/**
+ * The [date] of the surgical process.
+ */
+data class SurgeryDate(val date: Instant)
