@@ -66,7 +66,7 @@ class WebClient(vertx: Vertx) :
     private val client: WebClient = WebClient.create(vertx)
 
     override fun getUserAuthentication(user: User): Future<Boolean> =
-        client.postAbs("$UMI_URI/auth").sendJson(Json.encodeToString(user.toUserDto())).map {
+        client.postAbs("$UMI_URI/auth").sendJson(user.toUserDto()).map {
             it.statusCode() == HttpResponseStatus.OK.code()
         }
 
