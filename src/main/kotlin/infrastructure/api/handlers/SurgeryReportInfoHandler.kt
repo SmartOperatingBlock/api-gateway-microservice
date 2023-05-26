@@ -8,14 +8,14 @@
 
 package infrastructure.api.handlers
 
-import application.presenter.api.report.toSurgeryReportInfoDto
+import application.presenter.serialization.SurgeryReportSerializer.toApiDto
 import application.service.SurgeryReportService.SurgeryReportInfoService
 import infrastructure.provider.Provider
 import io.netty.handler.codec.http.HttpResponseStatus
 import io.vertx.core.Handler
 import io.vertx.ext.web.RoutingContext
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.encodeToJsonElement
 
 /**
  * The handler for the authentication API.
@@ -28,16 +28,12 @@ class SurgeryReportInfoHandler(
         SurgeryReportInfoService(
             routingContext.pathParam("processId"),
             provider.webClient,
-        ).execute().onComplete {
+        ).execute().onSuccess { report ->
             routingContext
                 .response()
                 .setStatusCode(HttpResponseStatus.OK.code())
                 .end(
-                    Json.encodeToString(
-                        it.map { sr ->
-                            sr.toSurgeryReportInfoDto()
-                        }.result(),
-                    ),
+                    Json.encodeToJsonElement(report.toApiDto()).toString(),
                 )
         }
     }
