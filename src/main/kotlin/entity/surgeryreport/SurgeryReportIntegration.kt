@@ -10,16 +10,16 @@ package entity.surgeryreport
 
 /**
  * Models the surgery report integration.
- * @param reportIntegration the integration of the report.
+ * @param additionalData the integration of the report.
  */
 data class SurgeryReportIntegration(
-    val reportIntegration: ReportIntegration,
+    val additionalData: AdditionalData,
 )
 
 /**
  * The integration of the report.
  * @param text the text of the integration.
  */
-data class ReportIntegration(
+data class AdditionalData(
     val text: String,
 )
