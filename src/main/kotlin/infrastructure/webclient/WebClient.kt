@@ -86,9 +86,9 @@ class WebClient(vertx: Vertx) :
             }
         }
 
-    override fun getSurgeryReportInfo(processId: String): Future<SurgeryReportInfo> =
-        client.getAbs("$SR_URI/reports/$processId").send().map { res ->
-            Json.decodeFromString<SurgeryReportInfoDto>(res.bodyAsString()).toSurgeryNameInfo()
+    override fun getSurgeryReportInfo(processId: String): Future<SurgeryReport> =
+        client.getAbs("$SR_URI/reports/$processId").send().map {
+            Json.decodeFromString<SurgeryReportApiDto>(it.bodyAsString()).toSurgeryReport()
         }
 
     override fun integrateReport(surgeryReportIntegration: SurgeryReportIntegration): Future<Boolean> =
