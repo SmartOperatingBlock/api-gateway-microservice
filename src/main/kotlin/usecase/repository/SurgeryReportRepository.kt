@@ -9,8 +9,8 @@
 package usecase.repository
 
 import entity.surgeryreport.SurgeryReportEntry
-import entity.surgeryreport.SurgeryReportInfo
 import entity.surgeryreport.SurgeryReportIntegration
+import entity.surgeryreport.report.SurgeryReport
 import io.vertx.core.Future
 
 /**
@@ -26,11 +26,12 @@ interface SurgeryReportRepository {
     /**
      * get the surgery report info given the [processId].
      */
-    fun getSurgeryReportInfo(processId: String): Future<SurgeryReportInfo>
+    fun getSurgeryReportInfo(processId: String): Future<SurgeryReport>
 
     /**
      * Integrate the surgery report.
+     * @param surgicalProcessId the id of the surgical process.
      * @param surgeryReportIntegration the integration of the surgery report.
      */
-    fun integrateReport(surgeryReportIntegration: SurgeryReportIntegration): Future<Boolean>
+    fun integrateReport(surgicalProcessId: String, surgeryReportIntegration: SurgeryReportIntegration): Future<Boolean>
 }
