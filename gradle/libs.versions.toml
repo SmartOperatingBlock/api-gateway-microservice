@@ -13,6 +13,7 @@ kotlin-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializat
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 logback = { module = "ch.qos.logback:logback-classic", version = "1.4.7" }
 vertx-core = { module = "io.vertx:vertx-core", version.ref = "vertx" }
+vertx-junit5 = { module = "io.vertx:vertx-junit5", version.ref = "vertx" }
 vertx-kafka = { module = "io.vertx:vertx-kafka-client", version.ref = "vertx" }
 vertx-kotlin = { module = "io.vertx:vertx-lang-kotlin", version.ref = "vertx" }
 vertx-web = { module = "io.vertx:vertx-web", version.ref = "vertx" }
@@ -23,7 +24,8 @@ kotlin-testing = [
     "archunit",
     "kotest-junit5",
     "kotest-assertions-core",
-    "kotest-assertions-core-jvm"
+    "kotest-assertions-core-jvm",
+    "vertx-junit5"
 ]
 
 [plugins]
