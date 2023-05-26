@@ -8,17 +8,17 @@
 
 package application.presenter.api.report
 
-import entity.surgeryreport.ReportIntegration
+import entity.surgeryreport.AdditionalData
 import entity.surgeryreport.SurgeryReportIntegration
 import kotlinx.serialization.Serializable
 
 /**
  * The Dto for surgery report integration.
- * @param reportIntegration the integration of the report.
+ * @param additionalData the integration of the report.
  */
 @Serializable
 data class SurgeryReportIntegrationDto(
-    val reportIntegration: String,
+    val additionalData: String,
 )
 
 /**
@@ -26,13 +26,13 @@ data class SurgeryReportIntegrationDto(
  */
 fun SurgeryReportIntegrationDto.toSurgeryReportIntegration(): SurgeryReportIntegration =
     SurgeryReportIntegration(
-        ReportIntegration(this.reportIntegration),
+        AdditionalData(this.additionalData),
     )
 
 /**
  * Extension function used to convert [SurgeryReportIntegration] to [SurgeryReportIntegrationDto].
  */
-fun SurgeryReportIntegration.toSurgeryReportIngrationDto(): SurgeryReportIntegrationDto =
+fun SurgeryReportIntegration.toSurgeryReportIntegrationDto(): SurgeryReportIntegrationDto =
     SurgeryReportIntegrationDto(
-        this.reportIntegration.text,
+        this.additionalData.text,
     )
