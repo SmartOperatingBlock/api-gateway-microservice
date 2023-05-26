@@ -80,9 +80,11 @@ class WebClient(vertx: Vertx) :
         }
 
     override fun getSurgeryReportArchive(): Future<List<SurgeryReportEntry>> =
-        client.getAbs("$SR_URI/reports").send().map { res ->
-            Json.decodeFromString<List<SurgeryReportEntryDto>>(res.bodyAsString()).map { sr ->
-                sr.toSurgeryReportEntry()
+        client.getAbs("$SR_URI/reports").send().map {
+            Json.decodeFromString<ResponseEntryList<ApiResponses.ResponseEntry<SurgeryReportEntryDto>>>(
+                it.bodyAsString(),
+            ).entries.map { responseEntry ->
+                responseEntry.entry.toSurgeryReportEntry()
             }
         }
 
