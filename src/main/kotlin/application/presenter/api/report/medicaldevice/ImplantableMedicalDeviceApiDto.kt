@@ -11,7 +11,7 @@ package application.presenter.api.report.medicaldevice
 import kotlinx.serialization.Serializable
 
 /**
- * Presenter class for the [entity.medicaldevice.ImplantableMedicalDevice] class.
+ * Presenter class for the [entity.surgeryreport.medicaldevice.ImplantableMedicalDevice] class.
  * It returns: the [id] of the implantable medical device and the [type]
  */
 @Serializable
@@ -21,7 +21,7 @@ data class ImplantableMedicalDeviceApiDto(
 )
 
 /**
- * Presenter enum class to represent [entity.medicaldevice.ImplantableMedicalDeviceType].
+ * Presenter enum class to represent [entity.surgeryreport.medicaldevice.ImplantableMedicalDeviceType].
  */
 enum class ImplantableMedicalDeviceApiDtoType {
     /** The Catheter is an implantable medical device type. */

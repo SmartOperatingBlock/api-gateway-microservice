@@ -11,7 +11,7 @@ package application.presenter.api.report.medicaldevice
 import kotlinx.serialization.Serializable
 
 /**
- * Presenter class for the [entity.medicaldevice.MedicalTechnology] class.
+ * Presenter class for the [entity.surgeryreport.medicaldevice.MedicalTechnology] class.
  * It returns: the [id], the [name], the [description], the [type] of the medical technology and moreover
  * if it is [inUse].
  */
