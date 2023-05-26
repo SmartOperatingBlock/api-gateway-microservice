@@ -11,7 +11,7 @@ package application.presenter.api.report.measurements
 import kotlinx.serialization.Serializable
 
 /**
- * Presenter class for the [entity.measurements.AggregateData] class.
+ * Presenter class for the [entity.surgeryreport.measurements.AggregateData] class.
  * It returns the following data: [average], [std], [maximum] and [minimum].
  */
 @Serializable

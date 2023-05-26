@@ -11,7 +11,7 @@ package application.presenter.api.report.healthcareuser
 import kotlinx.serialization.Serializable
 
 /**
- * Presenter class to serialize [entity.healthcareuser.HealthcareUser] information.
+ * Presenter class to serialize [entity.surgeryreport.healthcareuser.HealthcareUser] information.
  * The necessary information are the [taxCode], the [name] and the [surname].
  */
 @Serializable

@@ -12,7 +12,7 @@ import application.presenter.api.report.measurements.ValueWithUnit
 import kotlinx.serialization.Serializable
 
 /**
- * Presenter class to serialize [entity.healthcareuser.PatientVitalSigns].
+ * Presenter class to serialize [entity.surgeryreport.healthcareuser.PatientVitalSigns].
  * It describes the [heartBeat], the [diastolicBloodPressure], the [systolicBloodPressure], the [respiratoryRate],
  * the [saturationPercentage] and the [bodyTemperature].
  */

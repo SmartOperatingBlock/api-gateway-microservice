@@ -21,7 +21,7 @@ import application.presenter.api.report.tracking.TrackingInformationApiDto
 import kotlinx.serialization.Serializable
 
 /**
- * It represents the presentation of a single [entity.report.SurgeryReport] entry.
+ * It represents the presentation of a single [entity.surgeryreport.report.SurgeryReport] entry.
  * The necessary information are the [surgicalProcessID], the [patientId], the [patientName], the [patientSurname],
  * the [surgicalProcessDescription] and the [surgeryDate].
  */
@@ -36,7 +36,7 @@ data class SurgeryReportEntry(
 )
 
 /**
- * It represents the presentation of a [entity.report.SurgeryReport].
+ * It represents the presentation of a [entity.surgeryreport.report.SurgeryReport].
  * The necessary information are: the [surgicalProcessID], the [surgeryDate], the [surgicalProcessDescription],
  * the [inChargeHealthProfessionalID], the [patientID], the [roomsInvolved], the [healthcareUser], the [stepData],
  * the [consumedImplantableMedicalDevice], the [medicalTechnologyUsageData], the [healthProfessionalTrackingInformation]
@@ -59,7 +59,7 @@ data class SurgeryReportApiDto(
 )
 
 /**
- * Presenter class for the [entity.report.SurgeryProcessStepAggregateData].
+ * Presenter class for the [entity.surgeryreport.report.SurgeryProcessStepAggregateData].
  * It represents its [startDateTime], [stopDateTime], [patientVitalSignAggregateData] and [environmentalAggregateData].
  */
 @Serializable
@@ -69,9 +69,3 @@ data class SurgicalProcessStepAggregateDataApiDto(
     val patientVitalSignAggregateData: AggregateDataApiDto<PatientVitalSignsApiDto>,
     val environmentalAggregateData: Map<RoomApiDtoType, AggregateDataApiDto<RoomEnvironmentalDataApiDto>>,
 )
-
-/**
- * Presenter class for the integration of a surgery report with [additionalData].
- */
-@Serializable
-data class SurgeryReportPatchApiDto(val additionalData: String)
