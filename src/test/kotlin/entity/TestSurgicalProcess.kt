@@ -20,15 +20,15 @@ class TestSurgicalProcess : StringSpec({
 
     "It should be possible to create a Surgical Process" {
         SurgicalProcess(
-            ProcessData.ProcessId("processId"),
+            ProcessData.ProcessId("id"),
             Instant.now(),
             "Colonscopy",
-            ProcessData.PatientId("patient0"),
-            ProcessData.HealthProfessionalId("hp-0"),
-            ProcessData.RoomWithType(RoomData.RoomId("room3"), RoomData.RoomType.PRE_OPERATING_ROOM.toString()),
-            ProcessData.RoomWithType(RoomData.RoomId("room4"), RoomData.RoomType.OPERATING_ROOM.toString()),
-            ProcessData.ProcessState.PRE_SURGERY,
-            ProcessData.ProcessStep.ANESTHESIA,
+            ProcessData.PatientId("patient1"),
+            ProcessData.HealthProfessionalId("hp"),
+            ProcessData.RoomWithType(RoomData.RoomId("room2"), RoomData.RoomType.PRE_OPERATING_ROOM.toString()),
+            ProcessData.RoomWithType(RoomData.RoomId("room3"), RoomData.RoomType.OPERATING_ROOM.toString()),
+            ProcessData.ProcessState.SURGERY,
+            ProcessData.ProcessStep.PATIENT_ON_OPERATING_TABLE,
         ) shouldNotBe null
     }
 
