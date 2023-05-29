@@ -14,7 +14,7 @@ import io.vertx.core.Future
 /**
  * interface for user authentication repository.
  */
-interface AuthenticationRepository {
+fun interface AuthenticationRepository {
 
     /**
      * Authenticate a user.

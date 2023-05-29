@@ -15,7 +15,7 @@ import io.vertx.core.Future
 /**
  * Repository to manage and obtain data for Surgical Processes.
  */
-interface SurgicalProcessRepository {
+fun interface SurgicalProcessRepository {
 
     /**
      * Get a [SurgicalProcess] by the [preOperatingRoomId] and the [operatingRoomId].
