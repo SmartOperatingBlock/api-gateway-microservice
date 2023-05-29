@@ -4,11 +4,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=plastic)](https://opensource.org/licenses/MIT)
 ![Version](https://img.shields.io/github/v/release/smartoperatingblock/api-gateway-microservice?style=plastic)
 
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=SmartOperatingBlock_api-gateway-microservice&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=SmartOperatingBlock_surgical-process-monitoring-microservice)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=SmartOperatingBlock_api-gateway-microservice&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=SmartOperatingBlock_surgical-process-monitoring-microservice)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=SmartOperatingBlock_api-gateway-microservice&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=SmartOperatingBlock_surgical-process-monitoring-microservice)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=SmartOperatingBlock_api-gateway-microservice&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=SmartOperatingBlock_surgical-process-monitoring-microservice)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=SmartOperatingBlock_api-gateway-microservice&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=SmartOperatingBlock_surgical-process-monitoring-microservice)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=SmartOperatingBlock_api-gateway-microservice&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=SmartOperatingBlock_api-gateway-microservice)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=SmartOperatingBlock_api-gateway-microservice&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=SmartOperatingBlock_api-gateway-microservice)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=SmartOperatingBlock_api-gateway-microservice&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=SmartOperatingBlock_api-gateway-microservice)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=SmartOperatingBlock_api-gateway-microservice&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=SmartOperatingBlock_api-gateway-microservice)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=SmartOperatingBlock_api-gateway-microservice&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=SmartOperatingBlock_api-gateway-microservice)
 
 The **API Gateway** microservice responsible to handle clients requests and to route them to the appropriate service.
 
