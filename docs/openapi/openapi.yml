@@ -7,7 +7,7 @@ servers:
 
 info:
   description: This is the API of the Api gateway microservice within the Smart Operating Block project
-  version: 1.0.0
+  version: 1.1.0
   title: Api Gateway API
   contact:
     email: info@smartoperatingblock.com
