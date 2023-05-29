@@ -1,9 +1,10 @@
 openapi: 3.0.0
 servers:
-  - description: Operating Block API Gateway
+  - description: The Endpoint for Operating Block Dashboard.
     url: http://localhost:<port>/api/v1/obd/
-  - description: Operating Room API Gateway
+  - description: The Endpoint for Operating Rooms Dashboard.
     url: http://localhost:<port>/api/v1/ord
+
 info:
   description: This is the API of the Api gateway microservice within the Smart Operating Block project
   version: 1.0.0
