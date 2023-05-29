@@ -1,3 +1,15 @@
+## [1.0.1](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.0.0...1.0.1) (2023-05-29)
+
+
+### General maintenance
+
+* **release:** 1.0.0 ([74cbfff](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/74cbfff6700d0835ca79f5c05ca084146b7bf751))
+
+
+### Documentation
+
+* update api version in openapi documentation ([fb974f4](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/fb974f4431a5d234f6f937e29b04509fb26a11dc))
+
 ## [0.1.4](https://github.com/SmartOperatingBlock/kotlin-template-project/compare/0.1.3...0.1.4) (2023-04-26)
 
 
