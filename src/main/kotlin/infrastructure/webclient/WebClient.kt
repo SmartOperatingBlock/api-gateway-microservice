@@ -79,11 +79,14 @@ class WebClient(vertx: Vertx) :
         }
 
     override fun getSurgeryReportArchive(): Future<List<SurgeryReportEntry>> =
-        client.getAbs("$SR_URI/reports").send().map {
-            Json.decodeFromString<ResponseEntryList<ApiResponses.ResponseEntry<SurgeryReportEntryDto>>>(
-                it.bodyAsString(),
-            ).entries.map { responseEntry ->
-                responseEntry.entry.toSurgeryReportEntry()
+        client.getAbs("$SR_URI/reports").send().map { response ->
+            when (response.statusCode()) {
+                HttpResponseStatus.NO_CONTENT.code() -> listOf()
+                else -> Json.decodeFromString<ResponseEntryList<ApiResponses.ResponseEntry<SurgeryReportEntryDto>>>(
+                    response.bodyAsString(),
+                ).entries.map { responseEntry ->
+                    responseEntry.entry.toSurgeryReportEntry()
+                }
             }
         }
 
@@ -133,8 +136,8 @@ class WebClient(vertx: Vertx) :
             getRoomTrackingData("$ST_URI/rooms-tracking-data/$preOperatingRoomId"),
         )
 
-    private fun getRoomTrackingData(request: String): Future<List<Future<HealthProfessionalTrackingInfo>>> {
-        return client.getAbs(request).send()
+    private fun getRoomTrackingData(request: String): Future<List<Future<HealthProfessionalTrackingInfo>>> =
+        client.getAbs(request).send()
             .map { response ->
                 when (response.statusCode()) {
                     HttpResponseStatus.NO_CONTENT.code() -> listOf()
@@ -146,7 +149,6 @@ class WebClient(vertx: Vertx) :
                         }
                 }
             }
-    }
 
     private fun getHealthProfessionalInfo(hpId: String, roomId: String): Future<HealthProfessionalTrackingInfo> {
         return client.getAbs("$UMI_URI/healthProfessionals/$hpId").send().map {
