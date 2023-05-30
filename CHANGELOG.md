@@ -1,3 +1,16 @@
+## [1.1.1](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.0...1.1.1) (2023-05-30)
+
+
+### Bug Fixes
+
+* fix bug in tracking methods ([8d0d151](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/8d0d1518253ba6fc3ae73b2cf50c898f6a1be937))
+
+
+### General maintenance
+
+* edit dto according to the api ([0eff9bc](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/0eff9bc5749f828993923ba9f9dfaf7789c5828e))
+* edit path of tracking request ([b878081](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/b8780814ed4ca072ef9859e0e7b2715e80a691c1))
+
 ## [1.1.0](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.0.1...1.1.0) (2023-05-30)
 
 
