@@ -50,6 +50,6 @@ class ObdApiGatewayVerticle(
     companion object {
         private const val version = "v1"
         private const val endpoint = "/api/$version/obd"
-        private const val port = 3002
+        private const val port = 3000
     }
 }
