@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.0.1...1.1.0) (2023-05-30)
+
+
+### Features
+
+* set deployment port ([4e06d3f](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/4e06d3ffab880b2934e856398a606a4650d3a9bf))
+
 ## [1.0.1](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.0.0...1.0.1) (2023-05-29)
 
 
