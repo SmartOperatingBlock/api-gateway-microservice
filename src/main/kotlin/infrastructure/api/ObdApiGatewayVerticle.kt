@@ -40,7 +40,7 @@ class ObdApiGatewayVerticle(
         router.get("$endpoint/room-info/:roomId").handler(RoomInfoHandler(provider))
         router.get("$endpoint/process-info").handler(ProcessInfoHandler(provider))
         router.get("$endpoint/zone-hp-tracking-info").handler(ZoneHealthProfessionalTrackingHandler(provider))
-        router.get("$endpoint/block-hp-tracking-info/").handler(BlockHealthProfessionalTrackingHandler(provider))
+        router.get("$endpoint/block-hp-tracking-info").handler(BlockHealthProfessionalTrackingHandler(provider))
 
         vertx.createHttpServer()
             .requestHandler(router)
