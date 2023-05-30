@@ -12,24 +12,13 @@ import kotlinx.serialization.Serializable
 
 /**
  * Dto for tracking data in a room.
- * @param entries a list of tracking information.
- * @param total total number of entries.
- */
-@Serializable
-data class RoomsTrackingDataDto(
-    val entries: List<Entries>,
-    val total: Int,
-)
-
-/**
- * Tracking information.
  * @param dateTime the date time of the tracking.
  * @param roomId the room id.
  * @param healthProfessionalId the id of the health professional.
  * @param trackingType the type of the tracking.
  */
 @Serializable
-data class Entries(
+data class RoomsTrackingDataDto(
     val dateTime: String,
     val roomId: String,
     val healthProfessionalId: String,
