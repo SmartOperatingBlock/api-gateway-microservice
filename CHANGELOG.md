@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.1...1.1.2) (2023-05-30)
+
+
+### Bug Fixes
+
+* fix bug in surgery archive method ([f98bdb2](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/f98bdb210763aae30efcf4b1bb0b88345d7516f8))
+
 ## [1.1.1](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.0...1.1.1) (2023-05-30)
 
 
