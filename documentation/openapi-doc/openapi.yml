@@ -166,6 +166,12 @@ paths:
       summary: get the process info
       operationId: getProcessInfo
       description: Get Process info
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoomIds'
       responses:
         '200':
           description: search result
@@ -369,6 +375,14 @@ components:
       properties:
         zoneId:
           type: string
+        preOperatingRoomId:
+          type: string
+        operatingRoomId:
+          type: string
+          
+    RoomIds:
+      type: object
+      properties:
         preOperatingRoomId:
           type: string
         operatingRoomId:
