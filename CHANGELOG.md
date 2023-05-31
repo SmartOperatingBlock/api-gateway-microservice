@@ -1,3 +1,11 @@
+## [1.1.4](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.3...1.1.4) (2023-05-31)
+
+
+### Bug Fixes
+
+* add content type to http server responses ([c0786dd](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/c0786dd04150e9156dde7cea554be6fdd8e0a9a2))
+* manage no content return code in process info api ([b266a97](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/b266a97d7adc8c9a7fc4d45c8cf5eab41ce46731))
+
 ## [1.1.3](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.2...1.1.3) (2023-05-31)
 
 
