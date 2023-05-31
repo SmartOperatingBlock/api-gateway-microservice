@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.2...1.1.3) (2023-05-31)
+
+
+### Documentation
+
+* add request body to process info api ([833c949](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/833c9497094045df57a54a2786b88070d32585e8))
+
 ## [1.1.2](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.1...1.1.2) (2023-05-30)
 
 
