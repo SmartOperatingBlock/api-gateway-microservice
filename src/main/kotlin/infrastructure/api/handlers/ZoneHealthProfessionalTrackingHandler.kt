@@ -45,7 +45,9 @@ class ZoneHealthProfessionalTrackingHandler(
                         val preOperating = result.second.result().map { hp ->
                             hp.result().toTrackingInfoDto()
                         }
-                        routingContext.response().end(Json.encodeToString(operating + preOperating))
+                        routingContext.response()
+                            .putHeader("content-type", "application/json")
+                            .end(Json.encodeToString(operating + preOperating))
                     }
                 }
             }

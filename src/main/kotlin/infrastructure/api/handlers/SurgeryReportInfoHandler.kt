@@ -32,6 +32,7 @@ class SurgeryReportInfoHandler(
             routingContext
                 .response()
                 .setStatusCode(HttpResponseStatus.OK.code())
+                .putHeader("content-type", "application/json")
                 .end(
                     Json.encodeToJsonElement(report.toApiDto()).toString(),
                 )

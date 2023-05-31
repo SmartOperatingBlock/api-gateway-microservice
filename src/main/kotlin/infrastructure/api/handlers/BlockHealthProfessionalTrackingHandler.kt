@@ -11,6 +11,7 @@ package infrastructure.api.handlers
 import application.presenter.api.tracking.toTrackingInfoDto
 import application.service.TrackingService
 import infrastructure.provider.Provider
+import io.netty.handler.codec.http.HttpResponseStatus
 import io.vertx.core.CompositeFuture
 import io.vertx.core.Handler
 import io.vertx.ext.web.RoutingContext
@@ -33,7 +34,10 @@ class BlockHealthProfessionalTrackingHandler(
                 val block = list.map { hp ->
                     hp.result().toTrackingInfoDto()
                 }
-                routingContext.response().end(Json.encodeToString(block))
+                routingContext.response()
+                    .putHeader("content-type", "application/json")
+                    .setStatusCode(HttpResponseStatus.OK.code())
+                    .end(Json.encodeToString(block))
             }
         }
     }

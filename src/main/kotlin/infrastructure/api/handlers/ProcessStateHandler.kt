@@ -33,14 +33,16 @@ class ProcessStateHandler(
                 provider.webClient,
             ).execute().onSuccess { surgicalProcess ->
                 if (surgicalProcess != null) {
-                    routingContext.response().setStatusCode(HttpResponseStatus.OK.code()).end(
-                        Json.encodeToString(
-                            ProcessStateInfoDto(
-                                surgicalProcess.state.toString(),
-                                surgicalProcess.step.toString(),
+                    routingContext.response().setStatusCode(HttpResponseStatus.OK.code())
+                        .putHeader("content-type", "application/json")
+                        .end(
+                            Json.encodeToString(
+                                ProcessStateInfoDto(
+                                    surgicalProcess.state.toString(),
+                                    surgicalProcess.step.toString(),
+                                ),
                             ),
-                        ),
-                    )
+                        )
                 } else {
                     routingContext.response().setStatusCode(HttpResponseStatus.NO_CONTENT.code()).end()
                 }

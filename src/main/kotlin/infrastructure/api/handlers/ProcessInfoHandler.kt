@@ -35,9 +35,9 @@ class ProcessInfoHandler(
                     provider.webClient,
                 ).execute().onSuccess { surgicalProcess ->
                     if (surgicalProcess != null) {
-                        routingContext.response().setStatusCode(HttpResponseStatus.OK.code()).end(
-                            Json.encodeToString(surgicalProcess.toSurgicalProcessDto()),
-                        )
+                        routingContext.response().setStatusCode(HttpResponseStatus.OK.code())
+                            .putHeader("content-type", "application/json")
+                            .end(Json.encodeToString(surgicalProcess.toSurgicalProcessDto()))
                     } else {
                         routingContext.response().setStatusCode(HttpResponseStatus.NO_CONTENT.code()).end()
                     }

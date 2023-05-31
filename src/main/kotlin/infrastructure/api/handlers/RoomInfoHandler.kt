@@ -33,6 +33,7 @@ class RoomInfoHandler(
             ).execute().onSuccess { room ->
                 routingContext.response()
                     .setStatusCode(HttpResponseStatus.OK.code())
+                    .putHeader("content-type", "application/json")
                     .end(
                         Json.encodeToString(room.toRoomDto()),
                     )

@@ -41,9 +41,11 @@ class ZonesHandler(
                     }?.id?.id,
                 )
             }.run {
-                routingContext.response().setStatusCode(HttpResponseStatus.OK.code()).end(
-                    Json.encodeToString(this),
-                )
+                routingContext.response().setStatusCode(HttpResponseStatus.OK.code())
+                    .putHeader("content-type", "application/json")
+                    .end(
+                        Json.encodeToString(this),
+                    )
             }
         }
     }
