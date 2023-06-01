@@ -42,7 +42,7 @@ class OrdApiGatewayVerticle(
         router.post("$endpoint/stop-custom-automation-scenario").handler(StopCustomScenarioHandler(this.vertx))
         router.post("$endpoint/adapt-environment").handler(AdaptEnvironmentHandler(this.vertx))
 
-        router.get("socket-connection").handler {
+        router.get("$endpoint/socket-connection").handler {
             it.request().toWebSocket().onSuccess { webSocket ->
                 webSocket.accept()
                 webSockets.add(webSocket)
@@ -51,7 +51,9 @@ class OrdApiGatewayVerticle(
 
         this.vertx.eventBus().consumer(Topics.automationProposalsEventsTopic) { message ->
             val event = Json.decodeFromString<ProcessEvent<MedicalTechnologyAutomationProposalEvent>>(message.body())
-            webSockets.firstOrNull()?.writeTextMessage(Json.encodeToString(event.data))
+            webSockets.forEach {
+                it.writeTextMessage(Json.encodeToString(event.data))
+            }
         }
 
         vertx.createHttpServer()
