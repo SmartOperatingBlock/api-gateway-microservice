@@ -1,3 +1,15 @@
+## [1.1.7](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.6...1.1.7) (2023-06-01)
+
+
+### Bug Fixes
+
+* change topic name ([7ac816c](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/7ac816cf7d278c46197eb13c4490d52b94bbfea2))
+
+
+### General maintenance
+
+* change kafka topic subscription ([b0a1347](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/b0a13473d82be4bbcd037652354d4689c7167308))
+
 ## [1.1.6](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.5...1.1.6) (2023-06-01)
 
 
