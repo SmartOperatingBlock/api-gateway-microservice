@@ -27,7 +27,7 @@ class ProcessManualEventHandler(private val vertx: Vertx) : Handler<RoutingConte
         routingContext.queryParam("roomId").firstOrNull()?.let { roomId ->
             routingContext.queryParam("event").firstOrNull()?.let { processEvent ->
                 val event = ProcessEvent(
-                    key = "PROCESS-MANUAL-EVENT",
+                    key = "PROCESS_MANUAL_EVENT",
                     dateTime = Instant.now().toString(),
                     data = ProcessEventPayloads.ProcessManualEvent(
                         roomId,
