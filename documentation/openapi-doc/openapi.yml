@@ -209,7 +209,7 @@ paths:
         '204':
           description: No process found
 
-  /process-manual-event:
+  /process-manual-events:
     post:
       servers:
         - url: http://localhost:<port>/api/v1/ord/
