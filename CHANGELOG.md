@@ -1,3 +1,16 @@
+## [1.1.8](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.7...1.1.8) (2023-06-01)
+
+
+### Bug Fixes
+
+* use query parameter instead of body ([81eb9fb](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/81eb9fbe4b84935a1e432b5c6ab892457a946e3c))
+
+
+### Documentation
+
+* add socket connection documentation ([a544751](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/a5447515e9147503a647045f1b4264e9ada87a00))
+* add web socket asyncapi documentation ([41269bd](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/41269bd89366c31f23f8468fed3ba040f81ae02e))
+
 ## [1.1.7](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.6...1.1.7) (2023-06-01)
 
 
