@@ -1,3 +1,15 @@
+## [1.1.9](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.8...1.1.9) (2023-06-01)
+
+
+### Bug Fixes
+
+* correct process manual event key ([47f734d](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/47f734d44a4c7723b38f3ebecc76a98dab38e55d))
+
+
+### Documentation
+
+* update process manual event api ([5671aaa](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/5671aaacaa0c7429af1da8efa30071c3547863b2))
+
 ## [1.1.8](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.7...1.1.8) (2023-06-01)
 
 
