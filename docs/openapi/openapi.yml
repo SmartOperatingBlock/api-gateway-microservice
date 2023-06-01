@@ -255,13 +255,13 @@ paths:
           description: the ambient light lux
           required: true
           schema:
-            type: string
+            type: integer
         - in: query
           name: surgicalLightLux
           description: the surgical light lux
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         '200':
           description: custom scenario received

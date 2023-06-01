@@ -23,11 +23,16 @@ servers:
     url: http://broker:29092
     protocol: kafka
     description: The event broker
+  automation-scenario:
+    url: http://api-gateway-microservice:3001
+    protocol: wss
+    description: The Api Gateway Web Socket for automation scenario proposals.
+
 
 defaultContentType: application/json
 
 channels:
-  automation-proposals-events:
+  automation-proposal-events:
     description: The topic on which the automation scenario proposals are consumed.
     publish:
       operationId: getAutomationScenarioProposals
@@ -48,6 +53,14 @@ channels:
           - "$ref": '#/components/messages/customLightRequest'
           - "$ref": '#/components/messages/customLightStop'
 
+  web-socket-events:
+    description: The web socket channel in which the automation proposals are sent.
+    subscribe:
+      operationId: sendAutomationProposal
+      summary: |
+        Send automation scenario proposals to web socket channel.
+      message:
+        "$ref": '#/components/messages/webSocketMessage'
 
 components:
   messages:
@@ -86,6 +99,15 @@ components:
       contentType: application/json
       payload:
         $ref: "#/components/schemas/customLightStopEventSchema"
+
+    webSocketMessage:
+      messageId: webSocketMessage
+      name: Automation Proposal Web Socket message
+      title: Automation Proposal Web Socket message
+      summary: The automation proposal message sent to the websocket.
+      contentType: application/json
+      payload:
+        $ref: "#/components/schemas/medicalTechnologyAutomationProposalPayload"
 
   schemas:
     medicalTechnologyAutomationProposalEventSchema:
