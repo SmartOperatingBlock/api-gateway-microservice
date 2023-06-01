@@ -64,6 +64,6 @@ class OrdApiGatewayVerticle(
     companion object {
         private const val version = "v1"
         private const val endpoint = "/api/$version/ord"
-        private const val port = 3000
+        private const val port = 3001
     }
 }
