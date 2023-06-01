@@ -38,6 +38,6 @@ object EventProperties {
         const val stopCustomLightTopic = "stop-custom-light-events"
 
         /** The topic for  automation proposals events. */
-        const val automationProposalsEventsTopic = "automation-proposals-events"
+        const val automationProposalsEventsTopic = "automation-proposal-events"
     }
 }
