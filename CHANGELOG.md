@@ -1,3 +1,17 @@
+## [1.1.5](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.4...1.1.5) (2023-06-01)
+
+
+### Bug Fixes
+
+* make room nullable in surgical process ([dc42724](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/dc4272402129b68e8c3ba8d556acff00e5631eb2))
+
+
+### Dependency updates
+
+* **deps:** update dependency com.fasterxml.jackson.module:jackson-module-kotlin to v2.15.2 ([e1d6234](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/e1d6234ae55f0e3e4298e551b9b0d51a6e806ccb))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.27 ([805deee](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/805deee40624c5d47dce6576bcf3edb84ea8c0fa))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.30 ([fe015cc](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/fe015cc4f8bc99fa5876176405fb0b2534b9fe65))
+
 ## [1.1.4](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.3...1.1.4) (2023-05-31)
 
 
