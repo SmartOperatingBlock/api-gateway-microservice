@@ -1,3 +1,16 @@
+## [1.1.6](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.5...1.1.6) (2023-06-01)
+
+
+### Bug Fixes
+
+* add serializable to process info dto ([127c4d0](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/127c4d031e25a8a7758f78070fca9a72d571ab5c))
+
+
+### General maintenance
+
+* change ord endpoint port ([645f9dd](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/645f9ddf5ed9aead87e66c7011738f91723d3c69))
+* respond to all saved websocket ([5a2ff7d](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/5a2ff7daaeb997bfc8ccb4b33019af1c1706df9c))
+
 ## [1.1.5](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.4...1.1.5) (2023-06-01)
 
 
