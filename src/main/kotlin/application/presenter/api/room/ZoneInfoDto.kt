@@ -20,13 +20,3 @@ data class ZoneInfoDto(
     val preOperatingRoomId: String?,
     val operatingRoomId: String?,
 )
-
-/**
- * The Dto for the information about the [preOperatingRoomId]
- *  and [operatingRoomId] in a zone.
- */
-@Serializable
-data class RoomsInZoneDto(
-    val preOperatingRoomId: String,
-    val operatingRoomId: String,
-)
