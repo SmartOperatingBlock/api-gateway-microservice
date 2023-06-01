@@ -28,8 +28,8 @@ data class SurgicalProcess(
     val type: String,
     val patientId: ProcessData.PatientId,
     val healthProfessionalId: ProcessData.HealthProfessionalId,
-    val preOperatingRoom: ProcessData.RoomWithType,
-    val operatingRoom: ProcessData.RoomWithType,
+    val preOperatingRoom: ProcessData.RoomWithType?,
+    val operatingRoom: ProcessData.RoomWithType?,
     val state: ProcessData.ProcessState,
     val step: ProcessData.ProcessStep,
 )

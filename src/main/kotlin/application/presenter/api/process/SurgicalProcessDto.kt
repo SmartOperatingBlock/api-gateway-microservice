@@ -32,8 +32,8 @@ data class SurgicalProcessDto(
     val type: String,
     val patientId: String,
     val healthProfessionalId: String,
-    val preOperatingRoom: ProcessData.RoomWithType,
-    val operatingRoom: ProcessData.RoomWithType,
+    val preOperatingRoom: ProcessData.RoomWithType?,
+    val operatingRoom: ProcessData.RoomWithType?,
     val state: String,
     val step: String,
 )

@@ -115,20 +115,18 @@ class WebClient(vertx: Vertx) :
         preOperatingRoomId: RoomData.RoomId?,
         operatingRoomId: RoomData.RoomId?,
     ): Future<SurgicalProcess?> =
-        client.getAbs("$SPMS_URI/processes").send().run {
-            map {
-                if (it.statusCode() == HttpResponseStatus.OK.code()) {
-                    Json.decodeFromString<ResponseEntryList<SurgicalProcessDto>>(
-                        it.bodyAsString(),
-                    ).entries.map { processDto ->
-                        processDto.toSurgicalProcess()
-                    }.firstOrNull { process ->
-                        process.preOperatingRoom.id.id == preOperatingRoomId?.id ||
-                            process.operatingRoom.id.id == operatingRoomId?.id
-                    }
-                } else {
-                    null
+        client.getAbs("$SPMS_URI/processes").send().map {
+            if (it.statusCode() == HttpResponseStatus.OK.code()) {
+                Json.decodeFromString<ResponseEntryList<SurgicalProcessDto>>(
+                    it.bodyAsString(),
+                ).entries.map { processDto ->
+                    processDto.toSurgicalProcess()
+                }.firstOrNull { process ->
+                    process.preOperatingRoom?.id?.id == preOperatingRoomId?.id ||
+                        process.operatingRoom?.id?.id == operatingRoomId?.id
                 }
+            } else {
+                null
             }
         }
 
