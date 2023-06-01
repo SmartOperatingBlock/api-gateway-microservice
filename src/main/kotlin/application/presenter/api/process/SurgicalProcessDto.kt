@@ -69,6 +69,7 @@ fun SurgicalProcessDto.toSurgicalProcess() = SurgicalProcess(
 )
 
 /** The Dto for the [state] and [step] information of a [SurgicalProcess]. */
+@Serializable
 data class ProcessStateInfoDto(
     val state: String,
     val step: String,
