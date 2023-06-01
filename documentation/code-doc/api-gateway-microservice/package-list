@@ -192,10 +192,6 @@ $dokka.location:application.presenter.api.room/RoomsId///PointingToDeclaration/
 $dokka.location:application.presenter.api.room/RoomsId/RoomsId/#kotlin.String#kotlin.String/PointingToDeclaration/api-gateway-microservice/application.presenter.api.room/-rooms-id/-rooms-id.html
 $dokka.location:application.presenter.api.room/RoomsId/operatingRoomId/#/PointingToDeclaration/api-gateway-microservice/application.presenter.api.room/-rooms-id/operating-room-id.html
 $dokka.location:application.presenter.api.room/RoomsId/preOperatingRoomId/#/PointingToDeclaration/api-gateway-microservice/application.presenter.api.room/-rooms-id/pre-operating-room-id.html
-$dokka.location:application.presenter.api.room/RoomsInZoneDto///PointingToDeclaration/api-gateway-microservice/application.presenter.api.room/-rooms-in-zone-dto/index.html
-$dokka.location:application.presenter.api.room/RoomsInZoneDto/RoomsInZoneDto/#kotlin.String#kotlin.String/PointingToDeclaration/api-gateway-microservice/application.presenter.api.room/-rooms-in-zone-dto/-rooms-in-zone-dto.html
-$dokka.location:application.presenter.api.room/RoomsInZoneDto/operatingRoomId/#/PointingToDeclaration/api-gateway-microservice/application.presenter.api.room/-rooms-in-zone-dto/operating-room-id.html
-$dokka.location:application.presenter.api.room/RoomsInZoneDto/preOperatingRoomId/#/PointingToDeclaration/api-gateway-microservice/application.presenter.api.room/-rooms-in-zone-dto/pre-operating-room-id.html
 $dokka.location:application.presenter.api.room/ZoneInfoDto///PointingToDeclaration/api-gateway-microservice/application.presenter.api.room/-zone-info-dto/index.html
 $dokka.location:application.presenter.api.room/ZoneInfoDto/ZoneInfoDto/#kotlin.String#kotlin.String?#kotlin.String?/PointingToDeclaration/api-gateway-microservice/application.presenter.api.room/-zone-info-dto/-zone-info-dto.html
 $dokka.location:application.presenter.api.room/ZoneInfoDto/operatingRoomId/#/PointingToDeclaration/api-gateway-microservice/application.presenter.api.room/-zone-info-dto/operating-room-id.html
