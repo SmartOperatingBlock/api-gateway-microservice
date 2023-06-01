@@ -67,9 +67,7 @@ class EventManagerVerticle : AbstractVerticle() {
                 KafkaProducerRecord.create(Topics.automationRequestsEventsTopic, event.key, message.body()),
             )
         }
-
-        kafkaConsumer.subscribe(Topics.automationProposalsEventsTopic)
-        kafkaConsumer.handler(KafkaEventHandler(vertx))
+        kafkaConsumer.handler(KafkaEventHandler(vertx)).subscribe(Topics.automationProposalsEventsTopic)
     }
 
     companion object {
