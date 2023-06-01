@@ -30,7 +30,8 @@ tags:
     description: This is the available API to manage and obtain information about automantion scenarios.
   - name: Tracking API
     description: This is the available API to manage and obtain information about health professionals tracking data.
-
+  - name: WebSocket API
+    description: This is the available API to connect to the Operating Room Dashboard WebSocket.
 paths:
   /auth:
     post:
@@ -358,6 +359,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TrackingData'
+
+  /socket-connection:
+    get:
+      servers:
+        - url: http://localhost:<port>/api/v1/ord/
+      tags:
+        - WebSocket API
+      summary: connect to web socket
+      operationId: connectToWebSocket
+      description: Connect to ORD Web Socket
+      responses:
+        '200':
+          description: connection ok
 
 components:
   schemas:
