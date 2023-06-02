@@ -1,3 +1,16 @@
+## [1.1.10](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.9...1.1.10) (2023-06-02)
+
+
+### Bug Fixes
+
+* add nullable to application service ([0b86c23](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/0b86c238881857da52e942bfec8b31d86bff1b99))
+* change api handler return code ([6c37671](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/6c3767150ce8fe156c815157bfef1fcb6741545d))
+
+
+### Documentation
+
+* add return code to openapi doc ([006d332](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/006d332a8ebd2519795ce2e0b5ba704f01e31fea))
+
 ## [1.1.9](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.8...1.1.9) (2023-06-01)
 
 
