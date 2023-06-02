@@ -66,6 +66,8 @@ paths:
       responses:
         '200':
           description: search result
+        '204':
+          description: no content
           content:
             application/json:
               schema:
@@ -83,6 +85,8 @@ paths:
       responses:
         '200':
           description: search result
+        '204':
+          description: no content
           content:
             application/json:
               schema:
@@ -107,6 +111,8 @@ paths:
       responses:
         '200':
           description: search result
+        '404':
+          description: not found
           content:
             application/json:
               schema:
@@ -153,6 +159,8 @@ paths:
       responses:
         '200':
           description: search result
+        '404':
+          description: not found
           content:
             application/json:
               schema:
@@ -232,7 +240,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        '204':
           description: event received
 
   /custom-automation-scenario:
@@ -264,7 +272,7 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        '204':
           description: custom scenario received
 
   /stop-custom-automation-scenario:
@@ -284,7 +292,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        '204':
           description: stop custom scenario received
 
   /adapt-environment:
@@ -310,7 +318,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        '204':
           description: adapt environment received
 
   /zone-hp-tracking-info:
@@ -338,6 +346,8 @@ paths:
       responses:
         '200':
           description: search result
+        '204':
+          description: no content
           content:
             application/json:
               schema:
@@ -355,23 +365,12 @@ paths:
       responses:
         '200':
           description: search result
+        '204':
+          description: no content
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/TrackingData'
-
-  /socket-connection:
-    get:
-      servers:
-        - url: http://localhost:<port>/api/v1/ord/
-      tags:
-        - WebSocket API
-      summary: connect to web socket
-      operationId: connectToWebSocket
-      description: Connect to ORD Web Socket
-      responses:
-        '200':
-          description: connection ok
 
 components:
   schemas:
