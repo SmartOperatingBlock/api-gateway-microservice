@@ -32,10 +32,12 @@ class RoomInfoHandler(
                 provider.webClient,
             ).execute().onSuccess { room ->
                 routingContext.response()
-                    .setStatusCode(HttpResponseStatus.OK.code())
+                    .setStatusCode(
+                        if (room != null) HttpResponseStatus.OK.code() else HttpResponseStatus.NOT_FOUND.code(),
+                    )
                     .putHeader("content-type", "application/json")
                     .end(
-                        Json.encodeToString(room.toRoomDto()),
+                        Json.encodeToString(room?.toRoomDto()),
                     )
             }
         }

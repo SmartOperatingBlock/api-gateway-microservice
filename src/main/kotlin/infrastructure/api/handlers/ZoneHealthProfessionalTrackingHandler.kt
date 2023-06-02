@@ -13,6 +13,7 @@ import application.presenter.api.tracking.toTrackingInfoDto
 import application.service.TrackingService
 import entity.room.RoomData
 import infrastructure.provider.Provider
+import io.netty.handler.codec.http.HttpResponseStatus
 import io.vertx.core.CompositeFuture
 import io.vertx.core.Handler
 import io.vertx.ext.web.RoutingContext
@@ -45,9 +46,17 @@ class ZoneHealthProfessionalTrackingHandler(
                         val preOperating = result.second.result().map { hp ->
                             hp.result().toTrackingInfoDto()
                         }
+                        val finalList = operating + preOperating
                         routingContext.response()
                             .putHeader("content-type", "application/json")
-                            .end(Json.encodeToString(operating + preOperating))
+                            .setStatusCode(
+                                if (finalList.isNotEmpty()) {
+                                    HttpResponseStatus.OK.code()
+                                } else {
+                                    HttpResponseStatus.NO_CONTENT.code()
+                                },
+                            )
+                            .end(Json.encodeToString(finalList))
                     }
                 }
             }

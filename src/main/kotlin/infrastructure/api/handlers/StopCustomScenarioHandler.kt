@@ -34,7 +34,7 @@ class StopCustomScenarioHandler(private val vertx: Vertx) : Handler<RoutingConte
                 "stop-custom-light-events",
                 Json.encodeToString(event),
             )
-            routingContext.response().setStatusCode(HttpResponseStatus.OK.code()).end()
+            routingContext.response().setStatusCode(HttpResponseStatus.NO_CONTENT.code()).end()
         }
     }
 }

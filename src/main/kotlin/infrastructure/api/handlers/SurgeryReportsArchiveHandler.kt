@@ -29,7 +29,9 @@ class SurgeryReportsArchiveHandler(
             reports.map { report ->
                 report.toSurgeryReportEntryDto()
             }.run {
-                routingContext.response().setStatusCode(HttpResponseStatus.OK.code())
+                routingContext.response().setStatusCode(
+                    if (this.isNotEmpty()) HttpResponseStatus.OK.code() else HttpResponseStatus.NO_CONTENT.code(),
+                )
                     .putHeader("content-type", "application/json")
                     .end(
                         Json.encodeToString(this),

@@ -36,7 +36,9 @@ class BlockHealthProfessionalTrackingHandler(
                 }
                 routingContext.response()
                     .putHeader("content-type", "application/json")
-                    .setStatusCode(HttpResponseStatus.OK.code())
+                    .setStatusCode(
+                        if (list.isNotEmpty()) HttpResponseStatus.OK.code() else HttpResponseStatus.NO_CONTENT.code(),
+                    )
                     .end(Json.encodeToString(block))
             }
         }

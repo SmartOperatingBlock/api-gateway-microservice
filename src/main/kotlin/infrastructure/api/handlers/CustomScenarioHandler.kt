@@ -40,7 +40,7 @@ class CustomScenarioHandler(private val vertx: Vertx) : Handler<RoutingContext> 
                         "automation-requests-events",
                         Json.encodeToString(event),
                     )
-                    routingContext.response().setStatusCode(HttpResponseStatus.OK.code()).end()
+                    routingContext.response().setStatusCode(HttpResponseStatus.NO_CONTENT.code()).end()
                 }
             }
         }

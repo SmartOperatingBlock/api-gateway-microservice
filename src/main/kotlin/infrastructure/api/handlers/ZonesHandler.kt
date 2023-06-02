@@ -41,7 +41,10 @@ class ZonesHandler(
                     }?.id?.id,
                 )
             }.run {
-                routingContext.response().setStatusCode(HttpResponseStatus.OK.code())
+                routingContext.response()
+                    .setStatusCode(
+                        if (this.isEmpty()) HttpResponseStatus.OK.code() else HttpResponseStatus.NO_CONTENT.code(),
+                    )
                     .putHeader("content-type", "application/json")
                     .end(
                         Json.encodeToString(this),

@@ -31,10 +31,12 @@ class SurgeryReportInfoHandler(
         ).execute().onSuccess { report ->
             routingContext
                 .response()
-                .setStatusCode(HttpResponseStatus.OK.code())
+                .setStatusCode(
+                    if (report != null) HttpResponseStatus.OK.code() else HttpResponseStatus.NOT_FOUND.code(),
+                )
                 .putHeader("content-type", "application/json")
                 .end(
-                    Json.encodeToJsonElement(report.toApiDto()).toString(),
+                    Json.encodeToJsonElement(report?.toApiDto()).toString(),
                 )
         }
     }
