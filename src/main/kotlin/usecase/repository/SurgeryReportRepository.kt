@@ -26,7 +26,7 @@ interface SurgeryReportRepository {
     /**
      * get the surgery report info given the [processId].
      */
-    fun getSurgeryReportInfo(processId: String): Future<SurgeryReport>
+    fun getSurgeryReportInfo(processId: String): Future<SurgeryReport?>
 
     /**
      * Integrate the surgery report.

@@ -38,7 +38,7 @@ class ProcessManualEventHandler(private val vertx: Vertx) : Handler<RoutingConte
                     "process-manual-events",
                     Json.encodeToString(event),
                 )
-                routingContext.response().setStatusCode(HttpResponseStatus.OK.code()).end()
+                routingContext.response().setStatusCode(HttpResponseStatus.NO_CONTENT.code()).end()
             }
         }
     }

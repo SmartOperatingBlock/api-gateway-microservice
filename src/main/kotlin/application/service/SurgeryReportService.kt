@@ -34,8 +34,8 @@ object SurgeryReportService {
     class SurgeryReportInfoService(
         private val processId: String,
         private val repository: SurgeryReportRepository,
-    ) : ApplicationService<Future<SurgeryReport>> {
+    ) : ApplicationService<Future<SurgeryReport?>> {
 
-        override fun execute(): Future<SurgeryReport> = repository.getSurgeryReportInfo(processId)
+        override fun execute(): Future<SurgeryReport?> = repository.getSurgeryReportInfo(processId)
     }
 }

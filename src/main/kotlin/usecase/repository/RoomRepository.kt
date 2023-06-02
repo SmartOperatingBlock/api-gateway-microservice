@@ -25,5 +25,5 @@ interface RoomRepository {
     /**
      * Return the environmental information of a [Room] by its [roomId].
      */
-    fun getRoomEnvironmentalInfo(roomId: RoomData.RoomId): Future<Room>
+    fun getRoomEnvironmentalInfo(roomId: RoomData.RoomId): Future<Room?>
 }

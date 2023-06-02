@@ -34,8 +34,8 @@ object RoomService {
     class GetRoomEnvironmentalInfo(
         private val roomId: RoomData.RoomId,
         private val roomRepository: RoomRepository,
-    ) : ApplicationService<Future<Room>> {
+    ) : ApplicationService<Future<Room?>> {
 
-        override fun execute(): Future<Room> = roomRepository.getRoomEnvironmentalInfo(roomId)
+        override fun execute(): Future<Room?> = roomRepository.getRoomEnvironmentalInfo(roomId)
     }
 }

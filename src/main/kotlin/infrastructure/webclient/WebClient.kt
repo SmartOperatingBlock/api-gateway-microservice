@@ -90,9 +90,13 @@ class WebClient(vertx: Vertx) :
             }
         }
 
-    override fun getSurgeryReportInfo(processId: String): Future<SurgeryReport> =
+    override fun getSurgeryReportInfo(processId: String): Future<SurgeryReport?> =
         client.getAbs("$SR_URI/reports/$processId").send().map {
-            Json.decodeFromString<SurgeryReportApiDto>(it.bodyAsString()).toSurgeryReport()
+            if (it.statusCode() == HttpResponseStatus.OK.code()) {
+                Json.decodeFromString<SurgeryReportApiDto>(it.bodyAsString()).toSurgeryReport()
+            } else {
+                null
+            }
         }
 
     override fun integrateReport(
@@ -104,11 +108,15 @@ class WebClient(vertx: Vertx) :
                 it.statusCode() == HttpResponseStatus.NO_CONTENT.code()
             }
 
-    override fun getRoomEnvironmentalInfo(roomId: RoomData.RoomId): Future<Room> =
+    override fun getRoomEnvironmentalInfo(roomId: RoomData.RoomId): Future<Room?> =
         client.getAbs("$BM_URI/rooms/${roomId.id}").send().map {
-            Json.decodeFromString<RoomPresentation.RoomDto>(
-                it.bodyAsString(),
-            ).toRoom()
+            if (it.statusCode() == HttpResponseStatus.OK.code()) {
+                Json.decodeFromString<RoomPresentation.RoomDto>(
+                    it.bodyAsString(),
+                ).toRoom()
+            } else {
+                null
+            }
         }
 
     override fun getSurgicalProcessInfoByRoomId(
