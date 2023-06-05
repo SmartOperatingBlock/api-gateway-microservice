@@ -1,3 +1,10 @@
+## [1.1.11](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.10...1.1.11) (2023-06-05)
+
+
+### Bug Fixes
+
+* correct zone handler return code ([ee034e4](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/ee034e44deee8561cb95183b091438b1a21bc8ae))
+
 ## [1.1.10](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.9...1.1.10) (2023-06-02)
 
 
