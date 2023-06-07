@@ -1,3 +1,15 @@
+## [1.1.12](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.11...1.1.12) (2023-06-07)
+
+
+### Dependency updates
+
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.32 ([2be2d9c](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/2be2d9ca85564c4fc29e09b46065a7d8d2b9b1ac))
+
+
+### Documentation
+
+* **deps:** update plugin dokka to v1.8.20 ([213c3dd](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/213c3ddec5f18e2fe552201b597083560606ad4c))
+
 ## [1.1.11](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.10...1.1.11) (2023-06-05)
 
 
