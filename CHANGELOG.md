@@ -1,3 +1,11 @@
+## [1.1.13](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.12...1.1.13) (2023-06-08)
+
+
+### Dependency updates
+
+* **core-deps:** update dependency org.jetbrains.kotlin:kotlin-stdlib to v1.8.22 ([c33bf39](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/c33bf39e1060754e0ce20f3f8adb8df2b24bf3f0))
+* **deps:** update plugin kotlin-qa to v0.43.0 ([16bf9bd](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/16bf9bd47720fc613dbf3913b487f584ff74bb9e))
+
 ## [1.1.12](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.11...1.1.12) (2023-06-07)
 
 
