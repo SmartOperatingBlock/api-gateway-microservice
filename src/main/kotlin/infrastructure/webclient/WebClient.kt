@@ -141,8 +141,10 @@ class WebClient(vertx: Vertx) :
     override fun getZoneHealthProfessionalTrackingInfo(
         preOperatingRoomId: String,
         operatingRoomId: String,
-    ): Pair<Future<List<Future<HealthProfessionalTrackingInfo>>>,
-        Future<List<Future<HealthProfessionalTrackingInfo>>>,> =
+    ): Pair<
+        Future<List<Future<HealthProfessionalTrackingInfo>>>,
+        Future<List<Future<HealthProfessionalTrackingInfo>>>,
+        > =
         Pair(
             getRoomTrackingData("$ST_URI/rooms-tracking-data/$operatingRoomId"),
             getRoomTrackingData("$ST_URI/rooms-tracking-data/$preOperatingRoomId"),

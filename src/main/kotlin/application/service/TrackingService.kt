@@ -26,11 +26,17 @@ object TrackingService {
         private val preOperatingRoomId: RoomData.RoomId,
         private val operatingRoomId: RoomData.RoomId,
         private val trackingRepository: TrackingRepository,
-    ) : ApplicationService<Pair<Future<List<Future<HealthProfessionalTrackingInfo>>>,
-        Future<List<Future<HealthProfessionalTrackingInfo>>>,>,> {
+    ) : ApplicationService<
+        Pair<
+            Future<List<Future<HealthProfessionalTrackingInfo>>>,
+            Future<List<Future<HealthProfessionalTrackingInfo>>>,
+            >,
+        > {
 
-        override fun execute(): Pair<Future<List<Future<HealthProfessionalTrackingInfo>>>,
-            Future<List<Future<HealthProfessionalTrackingInfo>>>,> =
+        override fun execute(): Pair<
+            Future<List<Future<HealthProfessionalTrackingInfo>>>,
+            Future<List<Future<HealthProfessionalTrackingInfo>>>,
+            > =
             trackingRepository.getZoneHealthProfessionalTrackingInfo(preOperatingRoomId.id, operatingRoomId.id)
     }
 
