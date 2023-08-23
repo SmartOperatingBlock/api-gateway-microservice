@@ -1,3 +1,32 @@
+## [1.1.15](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.14...1.1.15) (2023-08-23)
+
+
+### Dependency updates
+
+* **core-deps:** update dependency org.jetbrains.kotlinx:kotlinx-serialization-json to v1.6.0 ([acf0519](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/acf05194cb4de4539f1dc6bd872e032abc9671f7))
+* **deps:** update dependency ch.qos.logback:logback-classic to v1.4.10 ([dc26f06](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/dc26f06fce1b7ac157a91cfaab259c0e94744a30))
+* **deps:** update dependency ch.qos.logback:logback-classic to v1.4.11 ([f4baab1](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/f4baab13696dae95c4b65ca627e805e6bb32adf4))
+* **deps:** update dependency ch.qos.logback:logback-classic to v1.4.9 ([33a9804](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/33a9804739e3ea4cd4fc1af4b74d8c164ae4cae6))
+* **deps:** update dependency com.tngtech.archunit:archunit-junit5 to v1.1.0 ([19a8377](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/19a83779ec100aa9aa7a0115e75d8b7109b24de9))
+* **deps:** update dependency gradle to v8.2.1 ([50d7c23](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/50d7c23e1b550934cdf7c760201b27c6c1a293a7))
+* **deps:** update dependency gradle to v8.3 ([deeddfc](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/deeddfc3caf902b85f9010061a4918da6bd16831))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.40 ([f94ce93](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/f94ce93ef5485f0b3dcb29f0ea972335932eb572))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.41 ([c567e21](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/c567e21bab4e3c292b747aa9ee7bc6c6f629ef8b))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.42 ([95c8859](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/95c885967c8dedfe12fdd79f440ff19d81993486))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.43 ([c2cddd3](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/c2cddd3d75a5c65d96ebcda4dc5720f5c67c6d0e))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.44 ([affe993](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/affe993a3ebe89d2303690cd147a55f7c3278fb8))
+* **deps:** update node.js to 18.17 ([68d515c](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/68d515c649e308d98bb941594d34f56da1983a25))
+* **deps:** update plugin com.gradle.enterprise to v3.14 ([a1fdbf4](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/a1fdbf41c3a682acd8f483c2fe62d1f476884f14))
+* **deps:** update plugin com.gradle.enterprise to v3.14.1 ([6ffa099](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/6ffa099713065f65a454f1a077f72a9a8cbc026c))
+* **deps:** update plugin kotlin-qa to v0.47.1 ([5cc4abf](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/5cc4abf364eb200f817c044f3a810c421a0a7522))
+* **deps:** update plugin kotlin-qa to v0.48.0 ([e692e64](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/e692e647ba4c4825a0b6faee595e528dd698c7c9))
+* **deps:** update plugin kotlin-qa to v0.49.0 ([a439782](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/a439782f76198a738b2d0d3627a4bf2721fe704c))
+
+
+### Build and continuous integration
+
+* **deps:** update gradle/wrapper-validation-action action to v1.1.0 ([c86c8c7](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/c86c8c7f1aa6f27c8da5e6d5268aae51d0bf1bbc))
+
 ## [1.1.14](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.13...1.1.14) (2023-07-07)
 
 
