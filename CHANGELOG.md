@@ -1,3 +1,11 @@
+## [1.1.16](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.15...1.1.16) (2023-08-24)
+
+
+### Dependency updates
+
+* **core-deps:** update dependency org.jetbrains.kotlin:kotlin-stdlib to v1.9.10 ([96d3ae2](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/96d3ae2cc9cfb183d99efd36702f69fa789f6ffa))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.46 ([69c27ad](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/69c27adb7825f3aca404e01332e0d736a4399930))
+
 ## [1.1.15](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.14...1.1.15) (2023-08-23)
 
 
