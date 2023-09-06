@@ -1,6 +1,6 @@
 [versions]
 kotlin = "1.9.10"
-kotest = "5.7.1"
+kotest = "5.7.2"
 vertx = "4.4.2"
 
 [libraries]
