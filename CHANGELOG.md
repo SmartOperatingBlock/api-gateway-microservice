@@ -1,3 +1,29 @@
+## [1.1.17](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.16...1.1.17) (2023-09-06)
+
+
+### Dependency updates
+
+* **deps:** update dependency io.kotest:kotest-assertions-core to v5.7.1 ([c519a5f](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/c519a5fbe76668eb0a1148cd862098d4c23d71aa))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.47 ([3209ee3](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/3209ee31e9ca7e14bf81f70080fe08ca2445f270))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.48 ([091f56f](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/091f56f5e47e06c1e0defbc38a5b95d662f293fc))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.49 ([e9892cf](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/e9892cf700e459793de58a62201df1108adb9aee))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.50 ([2e469a7](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/2e469a767cce756556d592cd8ac04c831601c122))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.52 ([9fbd80d](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/9fbd80df37986f7aceca1ec2d0b33c8b78e55ee5))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.53 ([937e62a](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/937e62a8e14da1fbc30af9abd7331a2b7f3d5b13))
+* **deps:** update kotest to v5.7.0 ([790af8e](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/790af8e3be019e93c35af1ac2cc65cec063ffb93))
+* **deps:** update plugin kotlin-qa to v0.49.1 ([f55fc18](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/f55fc187373f3df0edb3bed43edf3a2e33be2fec))
+* **deps:** update plugin org.danilopianini.gradle-pre-commit-git-hooks to v1.1.10 ([522f82e](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/522f82e006239cae8eeb319580bfa46d282df613))
+
+
+### Documentation
+
+* **deps:** update plugin dokka to v1.9.0 ([4f722a5](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/4f722a5388a2711d2b2f54996ee47c87486ba666))
+
+
+### Build and continuous integration
+
+* **deps:** update actions/checkout action to v4 ([08f8ba6](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/08f8ba639da4876422eb7f96431f5a5e33f2499d))
+
 ## [1.1.16](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.15...1.1.16) (2023-08-24)
 
 
