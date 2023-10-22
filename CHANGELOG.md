@@ -1,3 +1,37 @@
+## [1.1.18](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.17...1.1.18) (2023-10-22)
+
+
+### Dependency updates
+
+* **deps:** update dependency com.fasterxml.jackson.module:jackson-module-kotlin to v2.15.3 ([901925a](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/901925acced464d412d3c9fd97db7b6173b61f4b))
+* **deps:** update dependency gradle to v8.4 ([4f09724](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/4f097243dc44315532b340da6628ad7e2ce1eedc))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.54 ([b986411](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/b9864118f45924737f8f2ecc67e8333aff096749))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.55 ([9cf8a05](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/9cf8a05b08916d44f6b08eef972746b119d7817d))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.56 ([47c9678](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/47c96782ccbccd6be05f358decd157ac00af79d8))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.67 ([37c5fec](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/37c5fec15da96d1f3a008ab9c5ecd57f224db8b2))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.68 ([e3f8b8f](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/e3f8b8fd09c09f2b728a0fcd2e58483779b73895))
+* **deps:** update kotest to v5.7.2 ([29b4994](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/29b499479fec8ed213a2f2520e0188da69b34b4e))
+* **deps:** update node.js to 18.18 ([4762184](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/47621844b85507849c3664623cae7709221f5ce8))
+* **deps:** update plugin com.gradle.enterprise to v3.15 ([3cb36c4](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/3cb36c46251a76d9fc9ce905ab195ae66f869e54))
+* **deps:** update plugin com.gradle.enterprise to v3.15.1 ([9f81b00](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/9f81b00462699d1add9e4fd7bb1566607a654702))
+* **deps:** update plugin kotlin-qa to v0.50.0 ([392c81b](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/392c81b4dd47a452d77375eded3f67ec0c327089))
+* **deps:** update plugin kotlin-qa to v0.51.1 ([d6f71b4](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/d6f71b45bae2149b2b126fe48ef2d7d0d154c061))
+* **deps:** update plugin org.danilopianini.gradle-pre-commit-git-hooks to v1.1.12 ([8b35bdd](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/8b35bddf8c68eb0c9a76f24ff3d57c48daa3d59f))
+* **deps:** update plugin org.danilopianini.gradle-pre-commit-git-hooks to v1.1.13 ([027e829](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/027e82909142a0b0425c6e6f394a74230df87502))
+
+
+### Documentation
+
+* **deps:** update plugin dokka to v1.9.10 ([3aca81e](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/3aca81e10c3f23a1f176570b3c6e47c78d2ec573))
+
+
+### Build and continuous integration
+
+* **deps:** update smartoperatingblock/release-and-delivery-action action to v1.0.10 ([761a069](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/761a069c4750c2dcf347fa741bf4c0fb51cd226a))
+* **deps:** update smartoperatingblock/release-and-delivery-action action to v1.0.4 ([777b760](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/777b760fdd16b6e058e45b6d43439e43f19edf8b))
+* **deps:** update smartoperatingblock/release-and-delivery-action action to v1.0.5 ([9648ec4](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/9648ec429a4a5f9261d9b8f230d89b60b285f30c))
+* **deps:** update smartoperatingblock/release-and-delivery-action action to v1.0.6 ([548f721](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/548f721157adf7c070ba6998de426b23ae37999c))
+
 ## [1.1.17](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.16...1.1.17) (2023-09-06)
 
 
