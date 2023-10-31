@@ -1,3 +1,20 @@
+## [1.1.19](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.18...1.1.19) (2023-10-31)
+
+
+### Dependency updates
+
+* **core-deps:** update dependency org.jetbrains.kotlin:kotlin-stdlib to v1.9.20 ([d513462](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/d51346285893e90dc570b316211cd73116865dd9))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.69 ([9e81c0d](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/9e81c0d3874a509f21d93d46ece265fa1cea504d))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.70 ([d57f08f](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/d57f08f68d6d1750834bfa413e1564ac1ab548de))
+* **deps:** update node.js to 20.9 ([365a0b9](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/365a0b92c52fd3dfc62d5f05ded09288d7f91de3))
+* **deps:** update node.js to v20 ([849c10c](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/849c10c24836eac7b03374db2584cb0a4ff6d68f))
+* **deps:** update plugin kotlin-qa to v0.52.0 ([3c9e8cd](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/3c9e8cdbef0d5f927034b943dc2caad1161cf80a))
+
+
+### Build and continuous integration
+
+* **deps:** update actions/setup-node action to v4 ([25acb2f](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/25acb2f9637014f306ca2abd1714b229b5266d68))
+
 ## [1.1.18](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.17...1.1.18) (2023-10-22)
 
 
