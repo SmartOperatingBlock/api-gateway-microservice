@@ -1,3 +1,21 @@
+## [1.1.20](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.19...1.1.20) (2023-11-16)
+
+
+### Dependency updates
+
+* **core-deps:** update dependency org.jetbrains.kotlinx:kotlinx-serialization-json to v1.6.1 ([722e9a8](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/722e9a83e51a49e79ef98c744319e39356174d4e))
+* **deps:** update dependency com.tngtech.archunit:archunit-junit5 to v1.2.0 ([97dc36a](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/97dc36aabf2793112c50c214115c04d1ea07020d))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.71 ([2175fdf](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/2175fdf3c8f1241a049354e91f72e6cff5b30098))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.72 ([0880b4c](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/0880b4c8a8d8db66df91a9d6b6e6c38d4a0f9ea2))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.73 ([096d594](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/096d594d17e555a7f54c31c519844b77c78fa790))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.74 ([0c450fd](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/0c450fdd00dab75104a9fba9f219f4265fe4a928))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.75 ([c96c48c](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/c96c48c1e8f723309588fb8094b61fdb64d169a7))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.76 ([3c8d5a4](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/3c8d5a482ddf198671990c5b1603cabd4d857c22))
+* **deps:** update kotest to v5.8.0 ([5d82748](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/5d8274891d42220b3ac340ea4c89785ff047ed22))
+* **deps:** update plugin kotlin-qa to v0.53.0 ([542efad](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/542efad8a1513386aa980ecf95fac96910533987))
+* **deps:** update plugin kotlin-qa to v0.54.0 ([e4fb4b3](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/e4fb4b39b3627b59f2a2ddd5f1e041c25228e7ec))
+* **deps:** update plugin org.danilopianini.gradle-pre-commit-git-hooks to v1.1.14 ([c908954](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/c9089547080130ab06327e39ad14c3f09f94b95e))
+
 ## [1.1.19](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.18...1.1.19) (2023-10-31)
 
 
