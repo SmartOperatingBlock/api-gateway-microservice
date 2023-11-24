@@ -1,3 +1,18 @@
+## [1.1.21](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.20...1.1.21) (2023-11-24)
+
+
+### Dependency updates
+
+* **core-deps:** update dependency org.jetbrains.kotlin:kotlin-stdlib to v1.9.21 ([78478a0](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/78478a01a5ae74c52b1c092a066f40b714cbfff5))
+* **deps:** update dependency com.fasterxml.jackson.module:jackson-module-kotlin to v2.16.0 ([e8b47c6](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/e8b47c6075057991e2793af9558b30dda7b2e081))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.77 ([20054c6](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/20054c65c0d350344d3e6bbce9743c6235f0d279))
+* **deps:** update node.js to 20.10 ([80b11eb](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/80b11eb57c2a7042a00004882155f01d511fec3e))
+
+
+### Build and continuous integration
+
+* **deps:** update smartoperatingblock/release-and-delivery-action action to v1.0.11 ([194ecfe](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/194ecfea54a9b3b393196ee7881d9725aa3c444c))
+
 ## [1.1.20](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.19...1.1.20) (2023-11-16)
 
 
