@@ -1,3 +1,24 @@
+## [1.1.22](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.21...1.1.22) (2023-12-01)
+
+
+### Dependency updates
+
+* **core-deps:** update dependency org.jetbrains.kotlinx:kotlinx-serialization-json to v1.6.2 ([088a898](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/088a8984a479dd61884866f1b405711c287eda9d))
+* **deps:** update dependency ch.qos.logback:logback-classic to v1.4.12 ([ddd1ff1](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/ddd1ff1dfc935765ec3efdafe8224a5111bc4fd8))
+* **deps:** update dependency ch.qos.logback:logback-classic to v1.4.13 ([d67bc31](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/d67bc31129bf498c00e34a1f4a4bc71b71793298))
+* **deps:** update dependency gradle to v8.5 ([7d8f159](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/7d8f15940bbe545226ffe77be9989cfb64698791))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.78 ([bf9c10d](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/bf9c10d8d8733f51f7fe8e67beb5ca1d2bdf8aba))
+* **deps:** update plugin kotlin-qa to v0.54.1 ([ae06857](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/ae0685749321c3a9d7a86b5843f71232468f74c6))
+* **deps:** update plugin kotlin-qa to v0.55.0 ([fd89e2b](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/fd89e2bc0d03f42c9c655ca2753f321e257e5c8d))
+* **deps:** update plugin kotlin-qa to v0.55.1 ([cfc79a5](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/cfc79a5d9446410ec3576272ea8e876788822064))
+* **deps:** update plugin kotlin-qa to v0.55.2 ([b376f21](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/b376f212ff750049928880f37b71d04d9b744a33))
+* **deps:** update plugin org.danilopianini.gradle-pre-commit-git-hooks to v1.1.15 ([1b07d67](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/1b07d67d4d64aa11393de74f5b364a36e49f91c8))
+
+
+### Build and continuous integration
+
+* **deps:** update actions/setup-java action to v4 ([60c7ba5](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/60c7ba5a0048280b3e7bd2b2573e0880f3cd726e))
+
 ## [1.1.21](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.20...1.1.21) (2023-11-24)
 
 
