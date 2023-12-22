@@ -1,3 +1,24 @@
+## [1.1.23](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.22...1.1.23) (2023-12-22)
+
+
+### Dependency updates
+
+* **core-deps:** update dependency org.jetbrains.kotlin:kotlin-stdlib to v1.9.22 ([ac9bf27](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/ac9bf27b8852465fec93f12c8391afe6ab24a136))
+* **deps:** update alpine docker tag to v3.19 ([06282f3](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/06282f344dac6f878cd25c496d1f65e95a1d9c48))
+* **deps:** update dependency ch.qos.logback:logback-classic to v1.4.14 ([5ed4e31](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/5ed4e3171113940fa5bb7c930bb7bb4027d0a6d1))
+* **deps:** update dependency com.tngtech.archunit:archunit-junit5 to v1.2.1 ([c2ea3a6](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/c2ea3a6dacc136beeb7a2bb1f6428d883709219a))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.79 ([1a57640](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/1a576400493970bccd21dba147ac5e61ad802b8a))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.80 ([78ed51c](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/78ed51ca7866e46c8228b6b7589378bbc194fc8b))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.81 ([400d062](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/400d062898753a5adc3279c69438093c830daf77))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.82 ([4c866ff](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/4c866ff0b21c36f1509ead33e22683391fbbf5c6))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.83 ([91c3490](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/91c3490dbb7e71b6564f1a2e0696749567655960))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.84 ([c7e4e5b](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/c7e4e5bb9a178dfe36d8281a2d81493a78edaa69))
+* **deps:** update plugin com.gradle.enterprise to v3.16 ([c817e89](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/c817e89542ed323c4d572d245cc931df8831b89c))
+* **deps:** update plugin com.gradle.enterprise to v3.16.1 ([bbcc051](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/bbcc0514808172aa5291e5aa1df7f8e6b4bc663e))
+* **deps:** update plugin kotlin-qa to v0.56.0 ([c8e73f2](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/c8e73f20bb87e02f5f1b3829395ce3806ddfa396))
+* **deps:** update plugin kotlin-qa to v0.57.0 ([a53f60b](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/a53f60b4a884aec2d574f15afa71916457ab5338))
+* **deps:** update plugin org.danilopianini.gradle-pre-commit-git-hooks to v1.1.16 ([052cc51](https://github.com/SmartOperatingBlock/api-gateway-microservice/commit/052cc51e54c1519ec08593ab783f6469d10efc07))
+
 ## [1.1.22](https://github.com/SmartOperatingBlock/api-gateway-microservice/compare/1.1.21...1.1.22) (2023-12-01)
 
 
